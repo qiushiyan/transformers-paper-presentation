@@ -1,0 +1,207 @@
+## The 3 papers series in Word2Vec
+
+- Efficient Estimation of Word Representations in Vector Space (Jan 2013)
+
+- [Distributed Representations of Words and Phrases and their Compositionality]{.yellow} (Oct 2013)
+
+- Enriching Word Vectors with Subword Information (2016)
+
+## What was achieved then
+
+Skip-Gram works well on datasets of various sizes, and can better represent less frequent words.
+
+$$
+\frac{1}{T} \sum_{t=1}^T \sum_{-c \leq j \leq c, j \neq 0} \log p(w_{t+j} | w_t)
+$$
+
+
+::: {.aside}
+
+- T: the number of words
+
+- c: the context window size
+
+- p: the softmax based probability $p(w_i | w) = \frac{\exp(v_w^Tw)}{\sum_{w=1}^W \exp(v_w^Tw)}$
+
+
+:::
+
+For big datasets, the estimation is more efficient than previous neural network based methods.
+
+It also work well with small datasets due to less parameters.
+
+##
+
+![](https://www.baeldung.com/wp-content/uploads/sites/4/2021/03/Screenshot-2021-03-05-at-11.29.31-1024x616-1.png)
+
+## The problem
+
+<!-- * worse representation of frequent words (compared to CBOW) -->
+
+1. Performance is not optimal because full softmax is hard to compute
+
+2. Inability to represent idiomatic phrases
+
+  - i.e., vec("Air") + vec("Canada") is far away from vec("Air Canada")
+
+::: {.fragment .fade-up}
+
+<hr />
+
+1. use approximation with less complexity
+
+3. train on phrase vectors
+
+:::
+
+
+
+## Solution for performance
+
+- Negative Sampling
+
+  - manually create negative samples (k < 20) for each context-target pair and fit a logistic regression model to find the weights
+
+- Hierarchical Softmax
+  - each word is represented by a node in a binary tree, random walk is used to assign proababilities for each node, thus the complexity is reduced to $O(log(W))$
+
+- Subsampling for frequent words
+
+  - each word in the corpus is discarded with the probability
+
+  $$
+  p(w_i) = 1 - \sqrt{\frac{t}{f(w_i)}}
+  $$
+
+
+::: {.aside}
+
+t: constant threshold, usually 10e-5
+
+:::
+
+## Algorithm for negative sampling
+
+:::: {.columns}
+
+::: {.column width="55%"}
+```{.python style="font-size: 1.1em"}
+for word in context_window:
+  s_1 = (word, target, 1)
+  for i in range(k):
+    random_word = sample(all_words)
+    if random_word != target:
+      s_i = (word, random_word, 0)
+
+  logistic_regression([s_1, s_2, ..., s_k])
+```
+
+The sampling distribution is given by
+
+$$
+P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
+$$
+
+
+:::
+
+::: {.column width="40%"}
+
+I [had]{.blue} [milk]{.yellow} for breakfast.
+
+context | target | label
+--- | --- | ---
+had | milk | 1
+had | breakfast | 0
+had | the | 0
+had | I | 0
+had | ... | 0
+
+:::
+
+::: {.aside}
+
+[context]{.blue}
+
+[target]{.yellow}
+
+:::
+
+::::
+
+## Solution for representing phrases
+
+Phrases are represented as unique tokens in the training set. Phrases are identified using
+
+$$
+\text{score}(w_i, w_j) = \frac{\text{count}(w_i, w_j) - \delta}{\text{count}(w_i) \times \text{count}(w_j)}
+$$
+
+
+![Vector compositionality using element-wise addition. Four closest tokens to the sum of two
+vectors are shown, using the best Skip-gram model.](composability.png)
+
+::: {.aside}
+
+$\delta$ is used as a discounting coefficient and prevents too many phrases consisting of very infrequent words to be formed
+
+:::
+
+## Questions
+
+::: {.fragment}
+
+1. Negative sampling is used to create supervised data when the original one is too sparse, can you think of other application domains?
+
+:::
+
+::: {.fragment}
+
+2. We can possibly use the empirical distribution or uniform distribution to sample negative samples, what might be the problem?
+
+Recap on the true sampling distribution
+    $$
+    P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
+    $$
+:::
+
+
+## What could be (and actually was) improved
+
+The third Word2Vec paper expanded on the idea of capturing subword information.
+
+Each word is represented as a bag of character n-grams.
+
+A vector representation is associated to each character n-gram; words being represented as the sum of these representations.
+
+## Demo
+
+
+```{shinylive-python}
+#| standalone: true
+#| components: [editor, viewer]
+
+from shiny import *
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "N", 0, 100, 40),
+    ui.output_text_verbatim("txt"),
+)
+
+def server(input, output, session):
+    @output
+    @render.text
+    def txt():
+        return f"The value of n*2 is {input.n() * 2}"
+
+app = App(app_ui, server)
+
+```
+
+
+
+## Additional resources
+
+- [Word2Vec Code Walkthrough with gensim](https://gist.github.com/aparrish/2f562e3737544cf29aaf1af30362f469)
+
+- [Negative Sampling](https://www.youtube.com/watch?v=4PXILCmVK4Q)

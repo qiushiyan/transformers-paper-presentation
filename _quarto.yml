@@ -1,0 +1,15 @@
+freeze: auto
+
+title: Paper Presentation
+author: Qiushi Yan <br /> [qiushiyan/transformers-paper-presentation](https://github.com/qiushiyan/transformers-paper-presentation)
+
+filters:
+  - shinylive
+
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    date: now
+    scrollable: true
+    slide-number: true
+    code-overflow: wrap
