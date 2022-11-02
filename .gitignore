@@ -1,2 +1,4 @@
 *.js
 index_files
+
+/.quarto/

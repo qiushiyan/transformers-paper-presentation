@@ -1,0 +1,3378 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="CHANGELOG_files/libs/clipboard/clipboard.min.js"></script>
+<script src="CHANGELOG_files/libs/quarto-html/tabby.min.js"></script>
+<script src="CHANGELOG_files/libs/quarto-html/popper.min.js"></script>
+<script src="CHANGELOG_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="CHANGELOG_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="CHANGELOG_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="CHANGELOG_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.198">
+
+  <meta name="author" content="Qiushi Yan">
+  <title>Paper Presentation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="CHANGELOG_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="CHANGELOG_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="CHANGELOG_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="CHANGELOG_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="CHANGELOG_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="CHANGELOG_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="CHANGELOG_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Paper Presentation</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Qiushi Yan 
+</div>
+</div>
+</div>
+
+</section>
+<section id="section" class="slide level2">
+<h2>2.34.0</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li>add <code>term::get_mask</code> method <a href="https://github.com/jcubic/jquery.terminal/issues/785">#785</a></li>
+<li>add <code>onReady</code> event to <code>term::read</code> <a href="https://github.com/jcubic/jquery.terminal/issues/779">#779</a></li>
+<li>improve performance of typing animation</li>
+<li>add <code>prefers-reduced-motion</code> into main CSS</li>
+<li>pause terminal when images are loading <a href="https://github.com/jcubic/jquery.terminal/issues/802">#802</a></li>
+<li>allow disable scroll to bottom on resume <a href="https://github.com/jcubic/jquery.terminal/issues/800">#800</a> ### Bugfix</li>
+<li>fix line wrapping of cmd when using echo: newline <a href="https://github.com/jcubic/jquery.terminal/issues/773">#773</a></li>
+<li>fix text selection on echo without newline text</li>
+<li>fix rejected promises from echo <a href="https://github.com/jcubic/jquery.terminal/issues/790">#790</a></li>
+<li>improve TypeScript types for typing animation <a href="https://github.com/jcubic/jquery.terminal/issues/794">#794</a></li>
+<li>add missing mousewheel typing animation <a href="https://github.com/jcubic/jquery.terminal/issues/795">#795</a></li>
+<li>fix iterate formatting over closing bracket <a href="https://github.com/jcubic/jquery.terminal/issues/792">#792</a></li>
+<li>fix resolving promise from echo typing animation when previous command was async <a href="https://github.com/jcubic/jquery.terminal/issues/797">#797</a></li>
+<li>fix double exception in terminal::destroy</li>
+<li>fix double call to finalize function when echo DOM nodes</li>
+<li>fix $.terminal.substring <a href="https://github.com/jcubic/jquery.terminal/issues/792">#792</a></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2>2.33.3</h2>
+<h3 id="bugfix">Bugfix</h3>
+<ul>
+<li>fix newline in minified js file <a href="https://github.com/jcubic/jquery.terminal/issues/780">#780</a></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2>2.33.2</h2>
+<h3 id="bugfix-1">Bugfix</h3>
+<ul>
+<li>fix scroll to bottom <a href="https://github.com/jcubic/jquery.terminal/issues/777">#777</a></li>
+</ul>
+</section>
+<section id="section-3" class="slide level2">
+<h2>2.33.1</h2>
+<h3 id="bugfix-2">Bugfix</h3>
+<ul>
+<li>fix padding removed by minifier</li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2>2.33.0</h2>
+<h3 id="features-1">Features</h3>
+<ul>
+<li>add a color and background attributes to the font tag in the xml formatter</li>
+<li>add <code>terminal-none</code> animation</li>
+<li>allow to easily change border-radius on terminal <a href="https://github.com/jcubic/jquery.terminal/issues/766">#766</a></li>
+<li>add clear_cache to cmd ### Bugfix</li>
+<li>fix flicker of dynamic prompt on enter <a href="https://github.com/jcubic/jquery.terminal/issues/757">#757</a></li>
+<li>fix re-rendering of jQuery/DOM nodes <a href="https://github.com/jcubic/jquery.terminal/issues/759">#759</a></li>
+<li>fix regression in less + images</li>
+<li>fix embedding the Terminal inside SVG <a href="https://github.com/jcubic/jquery.terminal/issues/744">#744</a></li>
+<li>fix when the login function is not async</li>
+<li>fix calling login_name in dynamic prompt</li>
+<li>fix masking command on typing animation <a href="https://github.com/jcubic/jquery.terminal/issues/770">#770</a></li>
+<li>fix selection/click on text that was echo without newline (when prompt is still in same line)</li>
+<li>fix exception when outputLimit is used <a href="https://github.com/jcubic/jquery.terminal/issues/776">#776</a></li>
+<li>fix showing links for emails like prompt <a href="https://github.com/jcubic/jquery.terminal/issues/768">#768</a></li>
+<li>fix line wrapping when text between formatting have brackets <a href="https://github.com/jcubic/jquery.terminal/issues/772">#772</a></li>
+</ul>
+</section>
+<section id="section-5" class="slide level2">
+<h2>2.32.1</h2>
+<h3 id="bugfix-3">Bugfix</h3>
+<ul>
+<li>leading spaces with echo + keepWords <a href="https://github.com/jcubic/jquery.terminal/issues/754">#754</a></li>
+<li>fix loading hidden terminal</li>
+</ul>
+</section>
+<section id="section-6" class="slide level2">
+<h2>2.32.0</h2>
+<h3 id="features-2">Features</h3>
+<ul>
+<li>add insert typing animation</li>
+<li>add <code>--text-shadow</code> css variable</li>
+<li>new API method <code>parse_formatting</code></li>
+<li>allow to use terminal style of external element <a href="https://github.com/jcubic/jquery.terminal/issues/731">#731</a> ### Bugfix</li>
+<li>fix calculating number of rows (affecting less command)</li>
+<li>fix glow with prism and error messages <a href="https://github.com/jcubic/jquery.terminal/issues/729">#729</a></li>
+<li>fix prism and typing animation <a href="https://github.com/jcubic/jquery.terminal/issues/726">#726</a></li>
+<li>fix various TypeScript typing errors</li>
+<li>fix spacing between lines</li>
+<li>fix wrong mouse cursor on terminal cursor and character before</li>
+<li>fix catastrophic reflow when executing hundreds of echos in a loop</li>
+<li>fix empty lines in prompt (visible when using typing animation) <a href="https://github.com/jcubic/jquery.terminal/issues/734">#734</a></li>
+<li>fix trimming whitespace with echo keep_words <a href="https://github.com/jcubic/jquery.terminal/issues/738">#738</a></li>
+<li>fix JSON working on processing nested formatting with html entities <a href="https://github.com/jcubic/jquery.terminal/issues/735">#735</a></li>
+<li>fix echo array of numbers <a href="https://github.com/jcubic/jquery.terminal/issues/747">#747</a></li>
+<li>improve performance when terminal don’t have height</li>
+<li>fix partial text (echo without newline) rendering <a href="https://github.com/jcubic/jquery.terminal/issues/751">#751</a></li>
+</ul>
+</section>
+<section id="section-7" class="slide level2">
+<h2>2.31.1</h2>
+<h3 id="bugfix-4">Bugfix</h3>
+<ul>
+<li>fixing low severity self XSS with potential more security implications <a href="https://github.com/jcubic/jquery.terminal/issues/727">#727</a></li>
+</ul>
+</section>
+<section id="section-8" class="slide level2">
+<h2>2.31.0</h2>
+<h3 id="breaking">Breaking</h3>
+<ul>
+<li>remove undocumented <code>echo_command</code> (that was used by old <code>echo_newline</code> extension) ### Features</li>
+<li>scroll to bottom for each line in multiline typing animation</li>
+<li>allow to use <code>--glow: 1</code> with default animation</li>
+<li>new API <code>terminal::enter</code> same as echo_command but supports animation</li>
+<li>add global option <code>execAnimationDelay</code> default - 100</li>
+<li>make execAnimation work only with execHash <a href="https://github.com/jcubic/jquery.terminal/issues/723">#723</a> ### Bugfix</li>
+<li>fix prompt that return string or promise (in animation and set_prompt) <a href="https://github.com/jcubic/jquery.terminal/issues/724">#724</a></li>
+<li>fix formatting in typing animation <a href="https://github.com/jcubic/jquery.terminal/issues/721">#721</a></li>
+<li>fix formatting colors and <code>--glow</code> <a href="https://github.com/jcubic/jquery.terminal/issues/725">#725</a></li>
+<li>fix record stop command being recorded <a href="https://github.com/jcubic/jquery.terminal/issues/719">#719</a></li>
+</ul>
+</section>
+<section id="section-9" class="slide level2">
+<h2>2.30.2</h2>
+<h3 id="bugfix-5">Bugfix</h3>
+<ul>
+<li>fix animated exec array with sync commands <a href="https://github.com/jcubic/jquery.terminal/issues/722">#722</a></li>
+</ul>
+</section>
+<section id="section-10" class="slide level2">
+<h2>2.30.1</h2>
+<h3 id="bugfix-6">Bugfix</h3>
+<ul>
+<li>fix record built-in commands in URL hash</li>
+</ul>
+</section>
+<section id="section-11" class="slide level2">
+<h2>2.30.0</h2>
+<h3 id="features-3">Features</h3>
+<ul>
+<li>add <code>span</code> to xml formatting</li>
+<li>allow to use class attribute in XML formatting (<code>span</code>, <code>link</code>, and <code>img</code>)</li>
+<li>new API methods <code>clear_buffer()</code> and <code>get_output_buffer()</code> <a href="https://github.com/jcubic/jquery.terminal/issues/717">#717</a> ### Bugfix</li>
+<li>fix bug on Android with GBoard keyboard <a href="https://github.com/jcubic/jquery.terminal/issues/693">#693</a></li>
+<li>fix refresh when scrollbar appear (using <code>scrollbar-gutter</code>)</li>
+<li>fix link color to pass WCAG contrast ratio</li>
+<li>remove tabindex attribute on links</li>
+<li>add label to clipboard textarea for a11y</li>
+<li>allow to escape angle brackets in XML formatting <a href="https://github.com/jcubic/jquery.terminal/issues/710">#710</a></li>
+<li>fix black line before the image <a href="https://github.com/jcubic/jquery.terminal/issues/708">#708</a></li>
+<li>fix scroll to bottom when echo an image <a href="https://github.com/jcubic/jquery.terminal/issues/716">#716</a></li>
+<li>fix multiple echo with <code>!flush &amp;&amp; !newline</code> <a href="https://github.com/jcubic/jquery.terminal/issues/709">#709</a></li>
+<li>fix updating hash for long async commands <a href="https://github.com/jcubic/jquery.terminal/issues/703">#703</a></li>
+</ul>
+</section>
+<section id="section-12" class="slide level2">
+<h2>2.29.5</h2>
+<h3 id="bugfix-7">Bugfix</h3>
+<ul>
+<li>fix empty prompt when no wcwidth is included</li>
+</ul>
+</section>
+<section id="section-13" class="slide level2">
+<h2>2.29.4</h2>
+<h3 id="bugfix-8">Bugfix</h3>
+<ul>
+<li>fix empty lines when print single multi-line string</li>
+</ul>
+</section>
+<section id="section-14" class="slide level2">
+<h2>2.29.3</h2>
+<h3 id="bugfix-9">Bugfix</h3>
+<ul>
+<li>fix echo raw interfering with echo without newline <a href="https://github.com/jcubic/jquery.terminal/issues/695">#695</a></li>
+<li>update hash with proper array if hash is escaped</li>
+<li>invalidate cache and update CMD on <code>term::refresh()</code> <a href="https://github.com/jcubic/jquery.terminal/issues/699">#699</a></li>
+<li>allow to add horizontal scrollbar with single wrap options <a href="https://github.com/jcubic/jquery.terminal/issues/692">#692</a></li>
+<li>handle promise rejection in onInit <a href="https://github.com/jcubic/jquery.terminal/issues/691">#691</a></li>
+</ul>
+</section>
+<section id="section-15" class="slide level2">
+<h2>2.29.2</h2>
+<h3 id="bugfix-10">Bugfix</h3>
+<ul>
+<li>fix linkify of urls (better url detection)</li>
+<li>fix linkify urls in command line (enable link in cmd)</li>
+<li>fix two bugs with echo without newline (when prompt have 0 width and lines have different length)</li>
+<li>fix applying glow shadow to transparent text</li>
+<li>fix async responsive greetings</li>
+<li>fix multiple echo of async functions and promises mixed with strings</li>
+<li>fix <code>get_output()</code> on lines that are promises <a href="https://github.com/jcubic/jquery.terminal/issues/687">#687</a></li>
+<li>fix echo newline when one of the values is promise or function</li>
+<li>fix invalid css when partial output is no longer partial</li>
+<li>add padding to terminal size i <code>term::geometry()</code> <a href="https://github.com/jcubic/jquery.terminal/issues/686">#686</a></li>
+<li>clear extended commands from view when calling <code>import_view</code> <a href="https://github.com/jcubic/jquery.terminal/issues/7690">#690</a></li>
+</ul>
+</section>
+<section id="section-16" class="slide level2">
+<h2>2.29.1</h2>
+<h3 id="bugfix-11">Bugfix</h3>
+<ul>
+<li>remove <code>all: unset</code> CSS that was breaking resizing events and visibility of textarea</li>
+</ul>
+</section>
+<section id="section-17" class="slide level2">
+<h2>2.29.0</h2>
+<h3 id="breaking-1">Breaking</h3>
+<ul>
+<li>remove undocumented <code>&lt;large&gt;</code>/<code>&lt;big&gt;</code>/<code>&lt;wide&gt;</code> and add <code>&lt;font&gt;</code> tag to XML formatter ### Feature</li>
+<li>add animation to <code>exec</code> and <code>execAnimation</code> option <a href="https://github.com/jcubic/jquery.terminal/issues/679">#679</a></li>
+<li>add warning when calling invoke_key on disabled terminal <a href="https://github.com/jcubic/jquery.terminal/issues/678">#678</a></li>
+<li>if interpreter returns a promise and it’s animating the terminal will not pause (for exec array)</li>
+<li>allow to use brackets inside extended commands (e.g.&nbsp;JavaScript code to hide commands)</li>
+<li>expose <code>$.terminal.xml_formatter.tags</code></li>
+<li>add <code>--glow</code> <a href="https://www.kizu.ru/conditions-for-css-variables/">conditional hack</a> ### Bugfix</li>
+<li>tweak types for cmd function prompt</li>
+<li>fix broken order of execution in <code>exec</code> when using pause/resume</li>
+<li>fix mixing extended commands and terminal formatting</li>
+<li>fix invoking <code>get_command()</code> in interpreter (clear command after user action)</li>
+<li>fix parse_command when command have leading spaces <a href="https://github.com/jcubic/jquery.terminal/issues/681">#681</a></li>
+</ul>
+</section>
+<section id="section-18" class="slide level2">
+<h2>2.28.1</h2>
+<h3 id="bugfix-12">Bugfix</h3>
+<ul>
+<li>fix applying style of text-decoration (e.g.&nbsp;underline)</li>
+<li>fix using custom font in Canvas animations</li>
+</ul>
+</section>
+<section id="section-19" class="slide level2">
+<h2>2.28.0</h2>
+<h3 id="breaking-2">Breaking</h3>
+<ul>
+<li><code>nested_formatting</code> inherit styles by default ### Feature</li>
+<li>add forms extension <a href="https://github.com/jcubic/jquery.terminal/issues/610">#610</a></li>
+<li>rewrite xml_formatter and add new tags</li>
+<li>add animation interface <a href="https://github.com/jcubic/jquery.terminal/issues/611">#611</a></li>
+<li>use dash <code>-</code> as input file to read from STDIN in <code>from-ansi</code> executable</li>
+<li>improve auth error message</li>
+<li>add “enter” typing animation with prefix prompt</li>
+<li>allow to render ansi in less correctly (using <code>ansi</code> option) ### Bugfix</li>
+<li>fix rest of the extension files in NodeJS (regression since 2.22.0)</li>
+<li>fix inheritance of attributes (including styles) and classes in nested formatting</li>
+<li>fix echo and prompt with animation (using typing options)</li>
+<li>fix empty prompt</li>
+<li>disable keyboard on typing animation</li>
+<li>fix resizing when using default cache <a href="https://github.com/jcubic/jquery.terminal/issues/677">#677</a></li>
+</ul>
+</section>
+<section id="section-20" class="slide level2">
+<h2>2.27.1</h2>
+<h3 id="bugfix-13">Bugfix</h3>
+<ul>
+<li>fix <code>from_ansi</code> and add option <code>--ansi -a</code></li>
+</ul>
+</section>
+<section id="section-21" class="slide level2">
+<h2>2.27.0</h2>
+<h3 id="feature">Feature</h3>
+<ul>
+<li>add CSS and option <code>ansi</code> to echo to properly render ANSI art</li>
+<li>add typing animation to set_prompt <a href="https://github.com/jcubic/jquery.terminal/issues/673">#673</a></li>
+<li>return promise from <code>set_prompt</code> and <code>echo</code> when using typing animation</li>
+<li>add <code>from_ansi</code> executable <a href="https://github.com/jcubic/jquery.terminal/issues/670">#670</a></li>
+<li>new emoji ### Bugfix</li>
+<li>fix bug in cache (when echo same string two times in a row) <a href="https://github.com/jcubic/jquery.terminal/issues/672">#672</a></li>
+<li>fix exception when calling term::echo with typing animation</li>
+<li>fix regression in width (<a href="https://codepen.io/jcubic/pen/NWxOZQE">chess demo</a>)</li>
+<li>fix usage in NodeJS (regression since 2.22.0)</li>
+</ul>
+</section>
+<section id="section-22" class="slide level2">
+<h2>2.26.0</h2>
+<h3 id="feature-1">Feature</h3>
+<ul>
+<li>Better API for prompt typing animation with term::read and term::echo ### Bugfix</li>
+<li>fix return value from JSON-RPC (ignore only null)</li>
+<li>fix missing TypeScript definitions for <code>typing</code> API method</li>
+<li>fix multi-line prompt regression</li>
+<li>remove extra space after prompt animation</li>
+<li>fix echo string with newline at the end and with newline == false and refresh</li>
+<li>fix <code>$.rpc</code> helper on Ajax error</li>
+<li>add default <code>useCache</code> option &amp; TypeScript definition</li>
+<li>fix regression in text selection over prompt with fontawesome (Chrome bug <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1087787#c20">#1087787</a>)</li>
+<li>fix cutting off underscore in certain sizes of the terminal</li>
+</ul>
+</section>
+<section id="section-23" class="slide level2">
+<h2>2.25.1</h2>
+<h3 id="bugfix-14">Bugfix</h3>
+<ul>
+<li>fix wrong auth tokens when using exec to login</li>
+<li>fix exec array for async login</li>
+<li>fix Auth to nested RPC interpreter without system.describe</li>
+<li>don’t echo falsy values from RPC</li>
+</ul>
+</section>
+<section id="section-24" class="slide level2">
+<h2>2.25.0</h2>
+<h3 id="features-4">Features</h3>
+<ul>
+<li>add new API <code>$.rpc</code> for JSON-RPC requests ### Bugfix</li>
+<li>properly handle promise rejection in login</li>
+<li>fix re executing extended commands on resize <a href="https://github.com/jcubic/jquery.terminal/issues/666">#666</a></li>
+<li>fix rendering jQuery object with Canvas <a href="https://github.com/jcubic/jquery.terminal/issues/664">#664</a></li>
+<li>fix right mouse click on link to not scroll to cursor <a href="https://github.com/jcubic/jquery.terminal/issues/644">#644</a></li>
+</ul>
+</section>
+<section id="section-25" class="slide level2">
+<h2>2.24.0</h2>
+<h3 id="features-5">Features</h3>
+<ul>
+<li>add <code>terminal::typing</code> API method</li>
+<li>add <code>--font</code> custom property <a href="https://github.com/jcubic/jquery.terminal/issues/662">#662</a></li>
+<li>add alt tag to images from formatting <a href="https://github.com/jcubic/jquery.terminal/issues/661">#661</a></li>
+<li>improve command parser <a href="https://github.com/jcubic/jquery.terminal/issues/657">#657</a> ### Bugfix</li>
+<li>fix TypeScript types for echo with promises <a href="https://github.com/jcubic/jquery.terminal/issues/658">#658</a></li>
+</ul>
+</section>
+<section id="section-26" class="slide level2">
+<h2>2.23.2</h2>
+<h3 id="bugfix-15">Bugfix</h3>
+<ul>
+<li>fix regression in scroll to view mechanism (that cause scroll up randomly)</li>
+</ul>
+</section>
+<section id="section-27" class="slide level2">
+<h2>2.23.1</h2>
+<h3 id="bugfix-16">Bugfix</h3>
+<ul>
+<li>fix reversed class in cmd (e.g.&nbsp;in less command)</li>
+<li>fix hack to reflow the cursor in Firefox from <a href="https://github.com/jcubic/jquery.terminal/issues/654">#654</a></li>
+</ul>
+</section>
+<section id="section-28" class="slide level2">
+<h2>2.23.0</h2>
+<h3 id="features-6">Features</h3>
+<ul>
+<li>include echo without newline into the core of the library ### Bugfix</li>
+<li>remove unsafe eval (function constructor) that breaks CSP <a href="https://github.com/jcubic/jquery.terminal/issues/647">#647</a></li>
+<li>fix up/down arrow when prompt is empty string <a href="https://github.com/jcubic/jquery.terminal/issues/651">651</a></li>
+<li>fix prompt containing brackets <a href="https://github.com/jcubic/jquery.terminal/issues/648">#648</a></li>
+<li>fix ANSI Art (add saving and restoring cursor using ANSI escape code)</li>
+<li>fix mouse wheel and touch scroll in less when content is smaller than height of the terminal</li>
+<li>fix regression in copy/paste with right click</li>
+</ul>
+</section>
+<section id="section-29" class="slide level2">
+<h2>2.22.0</h2>
+<h3 id="features-7">Features</h3>
+<ul>
+<li>make unix formatting and basic tools work in web worker ### Bugfix</li>
+<li>fix scrolling whole page when using mouse wheel in less</li>
+<li>fix some missing cp_437 characters for ANSI Art</li>
+<li>fix usage as bookmarklet on StackOverflow (force css of textarea)</li>
+</ul>
+</section>
+<section id="section-30" class="slide level2">
+<h2>2.21.0</h2>
+<h3 id="features-8">Features</h3>
+<ul>
+<li>add <code>wrap</code> and <code>keepWords</code> option to less <a href="https://github.com/jcubic/jquery.terminal/issues/641">#641</a></li>
+<li>add new method <code>term::geometry</code> to the API <a href="https://github.com/jcubic/jquery.terminal/issues/637">#637</a> ### Bugfix</li>
+<li>fix parsing JSON code inside strings <a href="https://github.com/jcubic/jquery.terminal/issues/642">#642</a></li>
+</ul>
+</section>
+<section id="section-31" class="slide level2">
+<h2>2.20.2</h2>
+<h3 id="bugfix-17">Bugfix</h3>
+<ul>
+<li>fix bold background and default color in Unix formatting (another ANSI artwork issue)</li>
+<li>fix rendering 0x1E in ANSI art</li>
+<li>fix when browser don’t have ES6 Map object <a href="https://github.com/jcubic/jquery.terminal/issues/630">#630</a></li>
+<li>fix echo_newline extension</li>
+<li>fix handling of blink in ANSI Art</li>
+<li>fix error in prism when calling without options and render flags (e.g.: echo or prompt)</li>
+<li>fix background color for links that have set background using formatting</li>
+<li>fix empty cursor on Windows when copy/paste <a href="https://github.com/jcubic/jquery.terminal/issues/634">#634</a></li>
+</ul>
+</section>
+<section id="section-32" class="slide level2">
+<h2>2.20.1</h2>
+<h3 id="bugfix-18">Bugfix</h3>
+<ul>
+<li>fix async synchronization of async functions and normal echo</li>
+<li>fix exception when executing empty command with pipe</li>
+<li>fix serialization of commands when using pipe operator and function interpreter</li>
+<li>fix exception in <code>terminal::destroy</code></li>
+</ul>
+</section>
+<section id="section-33" class="slide level2">
+<h2>2.20.0</h2>
+<h3 id="breaking-3">Breaking</h3>
+<ul>
+<li><code>set_interpreter</code> return a promise instead of terminal instance ### Features</li>
+<li>add support for echo async functions <a href="https://github.com/jcubic/jquery.terminal/issues/629">#629</a></li>
+<li>allow to run exec using onInit that will use pipe <a href="https://github.com/jcubic/jquery.terminal/issues/603">#603</a> ### Bugfix</li>
+<li>fix silent error when executing empty command from hash</li>
+<li>with issues with browser that don’t support css variables <a href="https://github.com/jcubic/jquery.terminal/issues/630">#630</a></li>
+<li>fix exception in IE from formatters <a href="https://github.com/jcubic/jquery.terminal/issues/631">#631</a></li>
+</ul>
+</section>
+<section id="section-34" class="slide level2">
+<h2>2.19.1/2.19.2</h2>
+<h3 id="bugfix-19">Bugfix</h3>
+<ul>
+<li>fix prism highlighting</li>
+</ul>
+</section>
+<section id="section-35" class="slide level2">
+<h2>2.19.0</h2>
+<h3 id="features-9">Features</h3>
+<ul>
+<li>add support blink ANSI escape (unix_formatting)</li>
+<li>new unix formatting API options, <code>ansiArt</code> option change behavior of blinking ### Bugfix</li>
+<li>fix prism when page have color set on span</li>
+<li>fix visible textarea when global css set background image</li>
+<li>fix exception <code>delete_word_forward</code> (ALT+D) <code>delete_word_backward</code> (CTRL+W)</li>
+<li>fix page scrolling on enter when terminal don’t have scrollbar</li>
+<li>fix ANSI Art <a href="https://github.com/jcubic/jquery.terminal/issues/622">#622</a> (unix formatting)</li>
+<li>fix empty echo in CTRL+D <a href="https://github.com/jcubic/jquery.terminal/issues/626">#626</a></li>
+</ul>
+</section>
+<section id="section-36" class="slide level2">
+<h2>2.18.3</h2>
+<h3 id="bugfix-20">Bugfix</h3>
+<ul>
+<li>fix jumping to cursor position on mobile (with code)</li>
+</ul>
+</section>
+<section id="section-37" class="slide level2">
+<h2>2.18.2</h2>
+<h3 id="bugfix-21">Bugfix</h3>
+<ul>
+<li>fix when page use line-height on body</li>
+</ul>
+</section>
+<section id="section-38" class="slide level2">
+<h2>2.18.1</h2>
+<h3 id="bugfix-22">Bugfix</h3>
+<ul>
+<li>fix glitches in history navigation (visible when using multiline commands in history)</li>
+</ul>
+</section>
+<section id="section-39" class="slide level2">
+<h2>2.18.0</h2>
+<h3 id="features-10">Features</h3>
+<ul>
+<li>new API to use <code>renderHandler</code> with update</li>
+<li>new API (<code>apply_formatters</code> function option) to pick where processing of formatting should work <a href="https://github.com/jcubic/jquery.terminal/issues/588">#588</a></li>
+<li>allow to toggle formatters in prism (enabled by default only for echo and command)</li>
+<li>escape slash in <code>escape_formatting</code>/<code>escape_brackets</code> <a href="https://github.com/jcubic/jquery.terminal/issues/605">#605</a></li>
+<li>add support for rgb(a) and hsl(a) colors <a href="https://github.com/jcubic/jquery.terminal/issues/590">#590</a></li>
+<li>unify Firefox and Webkit (chrome) custom scrollbars <a href="https://github.com/jcubic/jquery.terminal/issues/607">#607</a> ### Bugfix</li>
+<li>fix same cases of wrong calculated size of the character when –size is used <a href="https://github.com/jcubic/jquery.terminal/issues/602">#602</a></li>
+<li>add custom scrollbar on Firefox</li>
+<li>fix colors of Webkit scrollbar</li>
+<li>fix <code>renderHandler</code> in update</li>
+<li>fix formatting in update - reusing options from echo</li>
+<li>fix normal return string from prompt</li>
+<li>fix pipe symbol inside strings <a href="https://github.com/jcubic/jquery.terminal/issues/606">#606</a></li>
+<li>fix spaces in images in less &amp; text selection</li>
+<li>fix regresion in fontawesome icons</li>
+<li>fix inconsistency with emoji and wide characters in terminal and cmd</li>
+<li>fix rounding issue that cause exception in less when rendering images</li>
+</ul>
+</section>
+<section id="section-40" class="slide level2">
+<h2>2.17.6</h2>
+<h3 id="bugfix-23">Bugfix</h3>
+<ul>
+<li>fix adding duplicated prism formatters <a href="https://github.com/jcubic/jquery.terminal/issues/573">#573</a></li>
+<li>fix inserting emoji using Windows 10 emoji picker</li>
+<li>fix position of textarea in multi line command (probably will affect IME or Emoji picker)</li>
+<li>make jump to bottom on click only when terminal is not enabled <a href="https://github.com/jcubic/jquery.terminal/issues/596">#596</a></li>
+<li>fix init cmd plugin without terminal</li>
+<li>fix underscore cut off in Firefox (visible in signature)</li>
+<li>fix combined emoji characters and skin tone variations <a href="https://github.com/jcubic/jquery.terminal/issues/598">#598</a></li>
+<li>fix down arrow at when cursor at the end of broken line <a href="https://github.com/jcubic/jquery.terminal/issues/601">#601</a></li>
+<li>fix broken keymap inheritance in nested interpreters <a href="https://github.com/jcubic/jquery.terminal/issues/615">#615</a></li>
+</ul>
+</section>
+<section id="section-41" class="slide level2">
+<h2>2.17.5</h2>
+<h3 id="bugfix-24">Bugfix</h3>
+<ul>
+<li>fix eating last bracket from split_equal <a href="https://github.com/jcubic/jquery.terminal/issues/597">#597</a></li>
+<li>fix false positive recursive echo error <a href="https://github.com/jcubic/jquery.terminal/issues/593">#593</a></li>
+</ul>
+</section>
+<section id="section-42" class="slide level2">
+<h2>2.17.4</h2>
+<h3 id="bugfix-25">Bugfix</h3>
+<ul>
+<li>fix jumping on right click near bottom and/or right edge when terminal is not full screen</li>
+<li>fix double event fire on right mouse click</li>
+<li>fix scrollbar size in Chrome</li>
+</ul>
+</section>
+<section id="section-43" class="slide level2">
+<h2>2.17.3</h2>
+<h3 id="bugfix-26">Bugfix</h3>
+<ul>
+<li>fix for font-family wildcard css rule</li>
+<li>fix cursor on scrollbar</li>
+<li>fix broken html with wide characters without formatting</li>
+<li>fix jumping to address bar on CTRL+L <a href="https://github.com/jcubic/jquery.terminal/issues/587">#587</a></li>
+<li>fix issue in less when only one image get rendered <a href="https://github.com/jcubic/jquery.terminal/issues/583">#583</a></li>
+<li>fix jumping on focus on mobile when terminal content scrolled down <a href="https://github.com/jcubic/jquery.terminal/issues/572">#572</a></li>
+<li>fix detecting iPad iOS 13as mobile <a href="https://github.com/jcubic/jquery.terminal/issues/589">#589</a></li>
+<li>fix return false from onPaste to disable insert from clipboard</li>
+<li>fix paste in command mode of less plugin <a href="https://github.com/jcubic/jquery.terminal/issues/581">#581</a></li>
+<li>fix jumping when click near bottom and/or right edge <a href="https://github.com/jcubic/jquery.terminal/issues/592">#592</a></li>
+</ul>
+</section>
+<section id="section-44" class="slide level2">
+<h2>2.17.2</h2>
+<h3 id="bugfix-27">Bugfix</h3>
+<ul>
+<li>fix cursor on strings in prism</li>
+</ul>
+</section>
+<section id="section-45" class="slide level2">
+<h2>2.17.1</h2>
+<h3 id="bugfix-28">Bugfix</h3>
+<ul>
+<li>fix regressions in text selection, cursor and CSS variables <a href="https://github.com/jcubic/jquery.terminal/issues/584">#584</a></li>
+<li>unify selection on font icons (fontawesome) and emoji</li>
+</ul>
+</section>
+<section id="section-46" class="slide level2">
+<h2>2.17.0</h2>
+<h3 id="features-11">Features</h3>
+<ul>
+<li>new CTRL+ARROW DOWN/UP shortcuts and ignore the multi line commands (change history) ### Bugfix</li>
+<li>fix ch unit bug for Firefox and IE <a href="https://github.com/jcubic/jquery.terminal/issues/579">#579</a></li>
+<li>fix broken emoji <a href="https://github.com/jcubic/jquery.terminal/issues/578">#578</a></li>
+<li>fix broken cursor navigation in Firefox <a href="https://github.com/jcubic/jquery.terminal/issues/577">#577</a></li>
+<li>fix default cursor color animation on color cmd from formatting (e.g.&nbsp;prism)</li>
+<li>fix font-awesome selection (partial - works only in Firefox)</li>
+<li>fix consistency of data-text attribute and span</li>
+<li>fix issue with split_equal when it swallow the line if the line had bracket at the end</li>
+<li>allow to use .emoji CSS in .raw output</li>
+<li>fix up/down on multi line command navigation when command have brackets and/or wrappings</li>
+<li>fix empty lines after wrapping in CMD when splitted line length == cols</li>
+<li>fix navigating of formatting when stacked formatters are used and one change length <a href="https://github.com/jcubic/jquery.terminal/issues/580">#580</a></li>
+</ul>
+</section>
+<section id="section-47" class="slide level2">
+<h2>2.16.1</h2>
+<h3 id="bugfix-29">Bugfix</h3>
+<ul>
+<li>fix disappearing cursor when use up down arrow in multi line CMD <a href="https://github.com/jcubic/jquery.terminal/issues/576">#576</a></li>
+<li>fix broken color CSS variables <a href="https://github.com/jcubic/jquery.terminal/issues/575">#575</a></li>
+<li>fix swallowed escape bracket as input in CMD <a href="https://github.com/jcubic/jquery.terminal/issues/574">#574</a></li>
+</ul>
+</section>
+<section id="section-48" class="slide level2">
+<h2>2.16.0</h2>
+<h3 id="features-12">Features</h3>
+<ul>
+<li>style of scrollbars in WebKit</li>
+<li>integration with fontawesome icons added using formatting ### Bugfix</li>
+<li>fix version of widget.js</li>
+</ul>
+</section>
+<section id="section-49" class="slide level2">
+<h2>2.15.4</h2>
+<h3 id="bugfix-30">Bugfix</h3>
+<ul>
+<li>fix jumping when you scrolled down the div terminal <a href="https://github.com/jcubic/jquery.terminal/issues/565">#565</a></li>
+</ul>
+</section>
+<section id="section-50" class="slide level2">
+<h2>2.15.3</h2>
+<h3 id="bugfix-31">Bugfix</h3>
+<ul>
+<li>fix broken formatting in prism.js when processing brackets</li>
+</ul>
+</section>
+<section id="section-51" class="slide level2">
+<h2>2.15.2</h2>
+<h3 id="bugfix-32">Bugfix</h3>
+<ul>
+<li>fix toggle keyboard on multiple terminals on same page</li>
+<li>fix jumping to prompt on press CTRL+C when terminal scrolled to top</li>
+<li>don’t scroll to bottom when click on terminal that already in focus</li>
+</ul>
+</section>
+<section id="section-52" class="slide level2">
+<h2>2.15.1</h2>
+<h3 id="bugfix-33">Bugfix</h3>
+<ul>
+<li>fix combination of mobile: focus, selection and touchscroll</li>
+</ul>
+</section>
+<section id="section-53" class="slide level2">
+<h2>2.15.0</h2>
+<h3 id="features-13">Features</h3>
+<ul>
+<li>add new API event touchscroll for mobile (use it in less) <a href="https://github.com/jcubic/jquery.terminal/issues/556">#556</a></li>
+<li>mobile paste <a href="https://github.com/jcubic/jquery.terminal/issues/458">#458</a></li>
+<li>cmd::clip API method used internally, mostly for mobile ### Bugfix</li>
+<li>fix vertical bar cursor animation on empty command line</li>
+<li>fix edge case while splitting the command line with formatting (better fix for <a href="https://github.com/jcubic/jquery.terminal/379">#379</a>)</li>
+<li>fix option parser when using minus or double minus as argument</li>
+<li>fix issue when wcwidth is added and there are no wide characters</li>
+<li>fix prism + wide characters (e.g.&nbsp;Chinese and Japanese inside strings)</li>
+</ul>
+</section>
+<section id="section-54" class="slide level2">
+<h2>2.14.1</h2>
+<h3 id="bugfix-34">Bugfix</h3>
+<ul>
+<li>fix empty rows size</li>
+</ul>
+</section>
+<section id="section-55" class="slide level2">
+<h2>2.14.0</h2>
+<h3 id="features-14">Features</h3>
+<ul>
+<li>allow to return promise from renderHandler</li>
+<li>allow to extend the ansiParser in unix_formatting</li>
+<li>add a way to to handle Sixel terminal image format <a href="https://github.com/jcubic/jquery.terminal/issues/553">#553</a></li>
+<li>improve performance of cmd render when moving cursor</li>
+<li>implement H cursor movement <a href="https://github.com/jcubic/jquery.terminal/issues/553">#553</a></li>
+<li>unix formatting ANSI character replacements modes ### Bugfix</li>
+<li>fix click on last line in multiline cmd <a href="https://github.com/jcubic/jquery.terminal/issues/554">#554</a></li>
+<li>fix selecting textarea content when selecting cmd</li>
+<li>fix possible loops in renderHandler</li>
+<li>fix parsing image REGEXes in less</li>
+<li>fix cmd cursor up/down with wrapping <a href="https://github.com/jcubic/jquery.terminal/issues/557">#557</a></li>
+<li>fix issue with prism (html language) and less</li>
+<li>fix left/right pagination in less, when not all lines are longer then cols</li>
+<li>fix CTRL+ARROWRIGHT <a href="https://github.com/jcubic/jquery.terminal/issues/560">#560</a></li>
+<li>fix urls inside formatting</li>
+</ul>
+</section>
+<section id="section-56" class="slide level2">
+<h2>2.12.0</h2>
+<h3 id="features-15">Features</h3>
+<ul>
+<li>improve performance</li>
+<li>add cache for formatting and processing lines</li>
+<li>big improvements to less plugin re-rendering (e.g.&nbsp;when scrolling text with keyboard)</li>
+<li>cursor movement in unix formatting (virtual cursor not supported in cmd, because it make no sense) <a href="https://github.com/jcubic/jquery.terminal/issues/553">#553</a> ### Bugfix</li>
+<li>fix empty lines in less</li>
+<li>fix split_equal with keep works and formatting at the end.</li>
+<li>fix searching inside links in less</li>
+</ul>
+</section>
+<section id="released-on-npm-as-2.11.1" class="slide level2">
+<h2>2.10.1 (released on npm as 2.11.1)</h2>
+<h3 id="bugfix-35">Bugfix</h3>
+<ul>
+<li>fix glow effect of prompt when it don’t have formatting</li>
+<li>fix exec commands from echo</li>
+<li>fix echo formatting with newline and bracket at the end</li>
+<li>fix single wide character exception</li>
+<li>fix substring after string when string have bracket at the end <a href="https://github.com/jcubic/jquery.terminal/issues/550">#550</a></li>
+<li>fix images &amp; style from formatters inside cmd <a href="https://github.com/jcubic/jquery.terminal/issues/519">#519</a></li>
+</ul>
+</section>
+<section id="section-57" class="slide level2">
+<h2>2.10.0</h2>
+<h3 id="feature-2">Feature</h3>
+<ul>
+<li>improve performance by adding function <code>$.terminal.partition</code></li>
+<li>allow to use force resize <code>cmd::resize(true)</code> (to update init command line with emoji)</li>
+<li>add glow style <a href="https://github.com/jcubic/jquery.terminal/issues/549">#549</a> ### Bugfix</li>
+<li>fix throw/reject in async function/promise <a href="https://github.com/jcubic/jquery.terminal/issues/546">#546</a></li>
+<li>allow to return string from greetings function</li>
+<li>fix low level iterate_formatting function to handle html entities properly</li>
+<li>fix spacing of wider characters (Chinese/Japanese) in echo (to match cmd)</li>
+<li>fix jumping on right click <a href="https://github.com/jcubic/jquery.terminal/issues/545">#545</a></li>
+<li>fix selection on double click on cmd</li>
+<li>fix parse_options <a href="https://github.com/jcubic/jquery.terminal/issues/547">#547</a></li>
+<li>fix style of links with wcwidth <a href="https://github.com/jcubic/jquery.terminal/issues/544">#544</a></li>
+<li>fix copy of empty lines in output <a href="https://github.com/jcubic/jquery.terminal/issues/548">#548</a></li>
+</ul>
+</section>
+<section id="section-58" class="slide level2">
+<h2>2.9.0</h2>
+<h3 id="features-16">Features</h3>
+<ul>
+<li>allow to return a promise from greetings function <a href="https://github.com/jcubic/jquery.terminal/issues/531">#531</a></li>
+<li>call onClear before clear and allow to cancel <a href="https://github.com/jcubic/jquery.terminal/issues/527">#527</a></li>
+<li>new renderHandler option <a href="https://github.com/jcubic/jquery.terminal/issues/526">#526</a></li>
+<li>allow to echo DOM nodes and jQuery objects <a href="https://github.com/jcubic/jquery.terminal/issues/526">#526</a></li>
+<li>handle broken images in terminal and less (svg and error message respectively)</li>
+<li>terminal have <code>terminal-less</code> class when <code>less</code> runs</li>
+<li>pipe extension monkey patch terminal like echo newline, and it allow to use standard interpreter (old API work the same). ### Bugfix</li>
+<li>fix links from formatters in cmd</li>
+<li>fix images from formatters in cmd <a href="https://github.com/jcubic/jquery.terminal/issues/519">#519</a></li>
+<li>fix less <a href="https://github.com/jcubic/jquery.terminal/issues/522">#522</a></li>
+<li>fix recursive error when echo finalize throwed exception <a href="https://github.com/jcubic/jquery.terminal/issues/524">#524</a></li>
+<li>fix prism - xml nested formatting and weird wrapping <a href="https://github.com/jcubic/jquery.terminal/issues/523">#523</a>, <a href="https://github.com/jcubic/jquery.terminal/issues/410">#410</a></li>
+<li>limit number of characters in click on exception line <a href="https://github.com/jcubic/jquery.terminal/issues/525">#525</a></li>
+<li>fix less search clear on resize <a href="https://github.com/jcubic/jquery.terminal/issues/528">#528</a></li>
+<li>fix less search second instance (move one line to bottom)</li>
+<li>don’t delay backspace by default on Desktop + fix delay key check <a href="https://github.com/jcubic/jquery.terminal/issues/532">#532</a></li>
+<li>fix pipe when argument is pipe in quote <code>echo "|"</code></li>
+<li>fix display_position (click on cmd) when using prism + unix formatting <a href="https://github.com/jcubic/jquery.terminal/issues/533">#533</a></li>
+<li>allow path in URL for links and images</li>
+<li>fix multiple issues with less plugin</li>
+<li>few fixes to pipe</li>
+<li>fix echo array after refresh <a href="https://github.com/jcubic/jquery.terminal/issues/540">#540</a></li>
+<li>fix apply formatters in update <a href="https://github.com/jcubic/jquery.terminal/issues/543">#543</a></li>
+<li>fix pause on login when using callback <a href="https://github.com/jcubic/jquery.terminal/issues/538">#538</a></li>
+</ul>
+</section>
+<section id="section-59" class="slide level2">
+<h2>2.8.0</h2>
+<h3 id="feature-3">Feature</h3>
+<ul>
+<li>new events <code>onBeforeLogin</code>, <code>onAfterLogin</code>, <code>onBeforeEcho</code> and <code>onAfterEcho</code></li>
+<li>inherit of style in nesting formatter (with flag <code>__inherit__ = true</code> on <code>nested_formatting</code>) <a href="https://github.com/jcubic/jquery.terminal/issues/513">#513</a></li>
+<li>image formatting (less with images <a href="https://github.com/jcubic/jquery.terminal/issues/515">#515</a>)</li>
+<li>new <code>echo_command</code> API method (for echo_newline default action)</li>
+<li>mobile delete disabled by default + option toggle <a href="https://github.com/jcubic/jquery.terminal/issues/506">#506</a> ### Bugfix</li>
+<li>add missing <code>onAfterCommand</code> and <code>onBeforeCommand</code> to d.ts file</li>
+<li>fix Emoji <a href="https://github.com/jcubic/jquery.terminal/issues/514">#514</a></li>
+<li>fix nesting with prism formatter</li>
+</ul>
+</section>
+<section id="section-60" class="slide level2">
+<h2>2.7.1</h2>
+<h3 id="bugfix-36">Bugfix</h3>
+<ul>
+<li>fix invoking methods by typing it into terminal <a href="https://github.com/jcubic/jquery.terminal/issues/512">#512</a></li>
+<li>don’t remove extended command when using echo with <code>exec: false</code></li>
+</ul>
+</section>
+<section id="section-61" class="slide level2">
+<h2>2.7.0</h2>
+<h3 id="breakingfeature">Breaking/Feature</h3>
+<ul>
+<li>all classes are prefixed with <code>cmd</code> or <code>terminal</code> except <code>.token</code> (PrimsJS internals) and <code>.emoji</code> (this may be feature that fix some bugs, that also may break user code - but it’s internal html structure and it’s not documented as API) <a href="https://github.com/jcubic/jquery.terminal/issues/510">#510</a> ### Bugfix</li>
+<li>fix issue with space in IE and Edge <a href="https://github.com/jcubic/jquery.terminal/issues/507">#507</a></li>
+<li>multiple bracket escaping issues <a href="https://github.com/jcubic/jquery.terminal/issues/505">#505</a></li>
+<li>fix paste of images <a href="https://github.com/jcubic/jquery.terminal/issues/503">#505</a></li>
+<li>fix xml formatter in Prism (regression) <a href="https://github.com/jcubic/jquery.terminal/issues/410">#410</a></li>
+</ul>
+</section>
+<section id="section-62" class="slide level2">
+<h2>2.6.3</h2>
+<h3 id="bugfix-37">Bugfix</h3>
+<ul>
+<li>fix mobile keypress invocation when no keypress (Android)</li>
+<li>fix sizing issue with underscores <a href="https://github.com/jcubic/jquery.terminal/issues/501">#501</a></li>
+</ul>
+</section>
+<section id="section-63" class="slide level2">
+<h2>2.6.2</h2>
+<h3 id="bugfix-38">Bugfix</h3>
+<ul>
+<li>fix CTRL+C when terminal is not in focus (it should bypass enabled flag only when select text is inside terminal) <a href="https://github.com/jcubic/jquery.terminal/issues/499">#499</a></li>
+<li>fix keepWord option in echo of last line <a href="https://github.com/jcubic/jquery.terminal/issues/497">#497</a></li>
+<li>fix broken formatting in Prism <a href="https://github.com/jcubic/jquery.terminal/issues/496">#496</a></li>
+</ul>
+</section>
+<section id="section-64" class="slide level2">
+<h2>2.6.1</h2>
+<h3 id="bugfix-39">Bugfix</h3>
+<ul>
+<li>fix sourcemaps</li>
+<li>fix prism + <code>--size</code></li>
+<li>fix echo double slashes</li>
+<li>escape options to <code>$.terminal.format</code> (default to <code>true</code> - same behavior) to fix previous error</li>
+</ul>
+</section>
+<section id="section-65" class="slide level2">
+<h2>2.6.0</h2>
+<h3 id="features-17">Features</h3>
+<ul>
+<li>new option <code>mobileIngoreAutoSpace</code> to fix issue on Android when typing keys: <code>, ) .</code> (default empty array) ### Bugfix</li>
+<li>fix hold+backspace on command line with whitespace</li>
+<li>fix context menu on Firefox <a href="https://github.com/jcubic/jquery.terminal/issues/494">#494</a></li>
+</ul>
+</section>
+<section id="section-66" class="slide level2">
+<h2>2.5.2</h2>
+<h3 id="bugfix-40">Bugfix</h3>
+<ul>
+<li>fix CTR+C when inside of single echo output is selected</li>
+<li>fix paste + key on Mac/Chrome <a href="https://github.com/jcubic/jquery.terminal/issues/493">#493</a></li>
+</ul>
+</section>
+<section id="section-67" class="slide level2">
+<h2>2.5.1</h2>
+<h3 id="bugfix-41">Bugfix</h3>
+<ul>
+<li>fix 1px black space in style of selection after prism token</li>
+<li>additional validate instead of just throw and capture JSON errors in format function (devtools improvement)</li>
+<li>fix typescript types for version 3.3.29 and freeze the version</li>
+</ul>
+</section>
+<section id="section-68" class="slide level2">
+<h2>2.5.0</h2>
+<h3 id="features-18">Features</h3>
+<ul>
+<li>Better API option <code>doubleTabEchoCommand</code> so you don’t need to call <code>echo_command()</code> function in <code>doubleTab</code>.</li>
+<li>new API <code>Cmd::column(boolean): number</code></li>
+<li>moving cursor up down in multiline command (like in Chrome Dev tools) ### Bugfix</li>
+<li>fix wrong array detection in completion when array passed across iframes</li>
+<li>fix prism.js and emoji.js dependencies when run with webpack</li>
+<li>fix <code>keepWord</code> option for echo (<code>iterate_formatting</code> function that is called by <code>split_equal</code>) <a href="https://github.com/jcubic/jquery.terminal/issues/491">#491</a></li>
+<li>fix press key after hold different key <a href="https://github.com/jcubic/jquery.terminal/issues/488">#488</a></li>
+<li>fix echo empty line on longer lines (issue only happen in examples page in scheme inside dialog)</li>
+<li>fix for jQuery UI dialog visibility change detection</li>
+<li>fix hidden cursor in FireFox</li>
+</ul>
+</section>
+<section id="section-69" class="slide level2">
+<h2>2.4.1</h2>
+<h3 id="bugfix-42">Bugfix</h3>
+<ul>
+<li>show terminal content after it’s resized when initially not visible (fix jumping of text)</li>
+<li>fix pipe when using read + echo in first command and read in next</li>
+<li>fix issue with jumping of terminal on keypress <a href="https://github.com/jcubic/jquery.terminal/issues/486">#486</a></li>
+<li>fix hold key when key change fast (manifested by jumping to address bar on ALT+D) <a href="https://github.com/jcubic/jquery.terminal/issues/485">#485</a></li>
+<li>fix scroll page when terminal don’t have scrollbar <a href="https://github.com/jcubic/jquery.terminal/issues/484">#484</a></li>
+<li>fix issue with call <code>.complete(['cd']);</code> because of default “clear” (moved code outside of <code>complete</code>)</li>
+<li>fix Prism formatter when highlighted code have brackets</li>
+<li>fix few async prompt issues including <a href="https://github.com/jcubic/jquery.terminal/issues/474">#474</a></li>
+</ul>
+</section>
+<section id="section-70" class="slide level2">
+<h2>2.4.0</h2>
+<h3 id="features-19">Features</h3>
+<ul>
+<li>improvements to performance of rendering and navigating longer command lines</li>
+<li>CTRL+C now retain newlines inside cmd and terminal output (modern browsers only)</li>
+<li>more control over server side calls by using invokeMethods option in echo</li>
+<li>warn users when they try to complete commands with newlines and word complete is set ### Bugfix</li>
+<li>fix scrollbar flicker on right click on right/bottom edge of terminal when no scrollbar</li>
+<li>fix text selections on multi line text without line breaks</li>
+<li>fix small bugs in animations (replace all of them with box-shadow)</li>
+<li>debounce HOLD+ARROWS (left/right) so they are usable again</li>
+<li>fix exception when completion characters not safe for regular exception</li>
+</ul>
+</section>
+<section id="section-71" class="slide level2">
+<h2>2.3.0</h2>
+<h3 id="features-20">Features</h3>
+<ul>
+<li>add experimental $.terminal.pipe function</li>
+<li>allow to return string from onPaste (not only a promise)</li>
+<li>add CTRL+Home and CTRL+End keys + HOME and END move cursor to the end and beginning of the line <a href="https://github.com/jcubic/jquery.terminal/issues/479">#479</a></li>
+<li>zoom page when using mousewheel + CTRL key (browser default) <a href="https://github.com/jcubic/jquery.terminal/issues/468">#468</a></li>
+<li>allow to set attributes from formatting with filtering options (to prevent unwanted onclick or other attrs by echo untrusted text) <a href="https://github.com/jcubic/jquery.terminal/issues/472">#472</a> ### Bugfix</li>
+<li>fix selecting whole text of single .cmd line</li>
+<li>fix double call of async prompt with async interpreter <a href="https://github.com/jcubic/jquery.terminal/issues/474">#474</a></li>
+<li>fix async + RPC + exec + no system.describe <a href="https://github.com/jcubic/jquery.terminal/issues/475">#475</a></li>
+<li>fix describe === false (exception in js and typscript definition)</li>
+<li>don’t pause terminal when user code return result of calling terminal::read()</li>
+<li>fix jumping while using up/down arrows <a href="https://github.com/jcubic/jquery.terminal/issues/477">#477</a> <a href="https://github.com/jcubic/jquery.terminal/issues/478">#478</a></li>
+<li>fix issue with echo brackets inside formatting when using unix formatting <a href="https://github.com/jcubic/jquery.terminal/issues/470">#470</a></li>
+<li>fix wrong <code>&amp;quote;</code> entity in formatting tag data-text attribute (it should be <code>&amp;quot;</code>)</li>
+</ul>
+</section>
+<section id="section-72" class="slide level2">
+<h2>2.2.0</h2>
+<h3 id="features-21">Features</h3>
+<ul>
+<li>Handle unclosed entities <a href="https://github.com/jcubic/jquery.terminal/issues/462">#462</a> ### Bugfix</li>
+<li>don’t complete default commands as argument <a href="https://github.com/jcubic/jquery.terminal/issues/465">#465</a></li>
+<li>don’t show links in echo command + format links inside formatting <a href="https://github.com/jcubic/jquery.terminal/issues/464">#464</a></li>
+<li>fix calling set_mask in onPop</li>
+<li>fix visibility change when terminal have <code>position:fixed</code> <a href="https://github.com/jcubic/jquery.terminal/issues/466">#466</a></li>
+<li>echo without argument or with empty string - to create blank line <a href="https://github.com/jcubic/jquery.terminal/issues/467">#467</a></li>
+</ul>
+</section>
+<section id="section-73" class="slide level2">
+<h2>2.1.2</h2>
+<h3 id="bugfix-43">Bugfix</h3>
+<ul>
+<li>remove bugfix for <a href="https://github.com/jcubic/jquery.terminal/issues/402">#402</a> that should never land in the code</li>
+<li>fix removing temp terminal (used to calculate char size)</li>
+</ul>
+</section>
+<section id="section-74" class="slide level2">
+<h2>2.1.1</h2>
+<h3 id="bugfix-44">Bugfix</h3>
+<ul>
+<li>don’t apply emoji css inside .raw class (added by <code>echo('string', {raw: true})</code>) <a href="https://github.com/jcubic/jquery.terminal/issues/461">#461</a></li>
+<li>fix wrapping when using font-family wildcard css rule</li>
+</ul>
+</section>
+<section id="section-75" class="slide level2">
+<h2>2.1.0</h2>
+<h3 id="features-22">Features</h3>
+<ul>
+<li>cursor glow animation</li>
+<li>add invoke_key to cmd</li>
+<li>onPaste event</li>
+<li>integrate emoji into terminal ### Bugfix</li>
+<li>fix wrapping when command have <code>&amp;</code> and <code>;</code> but it’s not entity <a href="https://github.com/jcubic/jquery.terminal/issues/454">#454</a></li>
+<li>fix wrapping when css style created using id <a href="https://github.com/jcubic/jquery.terminal/issues/454">#454</a></li>
+<li>fix calculating number of characters on init in bare cmd</li>
+<li>fix .inverted class <a href="https://github.com/jcubic/jquery.terminal/issues/457">#457</a></li>
+<li>fix background color on selection (when using –color)</li>
+<li>fix hidden bar cursor when command is empty</li>
+<li>fix copy terminal output to clipboard (newlines issue) <a href="https://github.com/jcubic/jquery.terminal/issues/456">#456</a></li>
+<li>remove weird space between lines of selection</li>
+<li>fix jumping of cursor with underline animation</li>
+<li>fix selection of command line</li>
+<li>fix error color when –color is used</li>
+<li>fix ANSI art issue <a href="https://github.com/jcubic/jquery.terminal/issues/460">#460</a></li>
+</ul>
+</section>
+<section id="section-76" class="slide level2">
+<h2>2.0.2</h2>
+<h3 id="bugfix-45">Bugfix</h3>
+<ul>
+<li>fix ansi escapes in unix formatting for sequence <code>5;1;47m</code> that fixes rendering ANSI art</li>
+<li>fix cutting of underline from ASCII art</li>
+<li>fix cutting ASCII art underscores in Codepen/Linux/Chromium on GNU/LINUX</li>
+<li>fix ascii_table when text have </li>
+<li>fix prism highlighting in echo (terminal rules were stronger than Prism)</li>
+</ul>
+</section>
+<section id="section-77" class="slide level2">
+<h2>2.0.1</h2>
+<h3 id="bugfix-46">Bugfix</h3>
+<ul>
+<li>fix focus to textarea or input that was printed using terminal echo function (<a href="https://stackoverflow.com/q/52943390/387194">reported as question on SO</a>)</li>
+<li>fix cutting of bottom part of greetings lines in Firefox</li>
+<li>fix keep focus into cursor feature added in 2.0 (up arrow was causing scroll to top) report in firebase chat</li>
+<li>don’t add empty string to history</li>
+<li>fix bottom padding in FireFox</li>
+<li>don’t overwrite wildcard selector that change font with wildcard selector (reported by <span class="citation" data-cites="ovk">@ovk</span> on gitter)</li>
+<li>fix <code>return true</code> in mousewheel it now disable JavaScript scrolling (reported by <span class="citation" data-cites="ovk">@ovk</span> on gitter)</li>
+<li>fix size down to <code>--size: 0.6</code></li>
+</ul>
+</section>
+<section id="section-78" class="slide level2">
+<h2>2.0.0</h2>
+<h3 id="breaking-4">Breaking</h3>
+<ul>
+<li>from now on if terminal is added to body it’s in fact added to div inside body (the API didn’t changed) <code>$('body').terminal().is('body');</code> will be false ### Features</li>
+<li>new option repeatTimeoutKeys with default of HOLD+BACKSPACE that should have delay when deleting words</li>
+<li>use setTimeout instead of alert to show exception that can be shown in terminal</li>
+<li>allow to move cursor when regex formatter don’t change length of the string</li>
+<li>don’t style links if they don’t have href</li>
+<li>new plugin isFullyInViewport (link to source in comment)</li>
+<li>scroll terminal to always view cursor in multiline command</li>
+<li>add onPositionChange to option to terminal</li>
+<li>add tabindex option to cmd and terminal ### Bugfix</li>
+<li>fix delay when using arrow keys by filtering keys that have delay when hold</li>
+<li>fix skipping lines that have emoji as last character inside formatting</li>
+<li>fix cursor over tab</li>
+<li>fix tracking replace for emoji and extra chars when adding formatting multiple times</li>
+<li>fix inconsistency of cursor on background formatting between Windows and Linux</li>
+<li>fix echo newline as first character of formatting</li>
+<li>fix slash as last character in formatting when generation command line with slash and cursor just after</li>
+<li>fix escape bracket in command line</li>
+<li>fix relative and absolute urls with default <code>anyLinks: false</code></li>
+<li>fix android and iPhone issues <a href="https://github.com/jcubic/jquery.terminal/issues/443">#443</a> <a href="https://github.com/jcubic/jquery.terminal/issues/414">#414</a></li>
+<li>fix ANSI escapes in unix_formatting <a href="https://github.com/jcubic/jquery.terminal/issues/444">$444</a></li>
+<li>fix jumping cursor when there are no text before cursor line in Chrome</li>
+<li>fix selection menu in latest Android</li>
+<li>fix wrong number of chars per line when insert called after init and scrollbar appear</li>
+<li>fix missing cursor when init cmd plugin (without calling refresh)</li>
+<li>fix issue with function prompt not updating after resume</li>
+</ul>
+</section>
+<section id="section-79" class="slide level2">
+<h2>1.23.2</h2>
+<h3 id="bugfix-47">Bugfix</h3>
+<ul>
+<li>fix too tall cursor (blink included underline)</li>
+</ul>
+</section>
+<section id="section-80" class="slide level2">
+<h2>1.23.1</h2>
+<h3 id="bugfix-48">Bugfix</h3>
+<ul>
+<li>fix cursor when terminal is empty</li>
+</ul>
+</section>
+<section id="section-81" class="slide level2">
+<h2>1.23.0</h2>
+<h3 id="features-23">Features</h3>
+<ul>
+<li>ES6 iterator helper that iterate over string that handle formatting, emoji and extra chars ### Bugfix</li>
+<li>fix tracking replace in Edge (missing RegExp::flags)</li>
+<li>hide textarea cursor in Edge and IE11</li>
+<li>fix cursor in Edge and almost IE11</li>
+<li>fix calculating prompt length (wrong wrapping because of first line count)</li>
+<li>use <code>setInterval</code> as replacement for Intersection Observer when not supported (IE)</li>
+</ul>
+</section>
+<section id="section-82" class="slide level2">
+<h2>1.22.6/7</h2>
+<h3 id="bugfix-49">Bugfix</h3>
+<ul>
+<li>fix selection of command line</li>
+</ul>
+</section>
+<section id="section-83" class="slide level2">
+<h2>1.22.5</h2>
+<h3 id="bugfix-50">Bugfix</h3>
+<ul>
+<li>fix issue with n command line and cursor position <a href="https://github.com/jcubic/jquery.terminal/issues/436">#436</a></li>
+<li>fix underline and bar animation after fix for prism</li>
+<li>disable selecting artificial last character in line for cmd</li>
+<li>fix cursor animation on background for toggle animation dynamically</li>
+</ul>
+</section>
+<section id="section-84" class="slide level2">
+<h2>1.22.4</h2>
+<h3 id="bugfix-51">Bugfix</h3>
+<ul>
+<li>fix cursor in prism when on token in next line</li>
+</ul>
+</section>
+<section id="section-85" class="slide level2">
+<h2>1.22.3</h2>
+<h3 id="bugfix-52">Bugfix</h3>
+<ul>
+<li>reverse css animations so the prompt is visible when you hold key</li>
+</ul>
+</section>
+<section id="section-86" class="slide level2">
+<h2>1.22.2</h2>
+<h3 id="bugfix-53">Bugfix</h3>
+<ul>
+<li>persistent function prompt don’t render on enable and on init</li>
+<li>fix duplicated line when prompt have more then one line</li>
+<li><code>iterate_formatting</code> to handle emoji like <code>substring</code> and <code>split_equal</code></li>
+</ul>
+</section>
+<section id="section-87" class="slide level2">
+<h2>1.22.1</h2>
+<h3 id="bugfix-54">Bugfix</h3>
+<ul>
+<li>fix broken jquery.terminal.js because after last change there was no build</li>
+<li>fix invocation in xml_formatting and dterm</li>
+<li>add onCommandChange to defaults file so it’s picked up by dterm (update d.ts)</li>
+</ul>
+</section>
+<section id="section-88" class="slide level2">
+<h2>1.22.0</h2>
+<h3 id="features-24">Features</h3>
+<ul>
+<li>add sourcemaps to min js and css files <a href="https://github.com/jcubic/jquery.terminal/issues/430">#430</a></li>
+<li>new option holdRepeatTimeout - which is number of the delay between keypress repeat when holding key</li>
+<li>selection to change background color based on formatting like in Bash</li>
+<li>embed emoji regex by Mathias Bynens for better emoji detection</li>
+<li>allow to execute extended commands including terminal and cmd methods from formatters</li>
+<li>support for true colors (24bit) in unix formatting <a href="https://github.com/jcubic/jquery.terminal/issues/433">#433</a></li>
+<li>expose split_characters in $.terminal namespace</li>
+<li>cmd commands option functions to have cmd as this context</li>
+</ul>
+<h3 id="bugfix-55">Bugfix</h3>
+<ul>
+<li>update typescript definition to new options + minor tweaks to the api</li>
+<li>fix cursor for PrismJS punctuation class</li>
+<li>fix emoji that contain U+FE0F character at the end <a href="https://github.com/jcubic/jquery.terminal/issues/424">#424</a></li>
+<li>fix for combine characters</li>
+<li>fix typescript definition for prompt and greetings <a href="https://github.com/jcubic/jquery.terminal/issues/425">#425</a></li>
+<li>fix typo in holdTimeout option name</li>
+<li>fix wrapping when command have emoji and combine characters</li>
+<li>fix align tabs when inside cursor line and align with prompt</li>
+<li>fix multiple 8-bit color codes in single ANSI escape</li>
+<li>fix cursor position when on formatting that change color and background</li>
+<li>allow to use login function in set_interpreter</li>
+</ul>
+</section>
+<section id="section-89" class="slide level2">
+<h2>1.21.0</h2>
+<h3 id="security">Security</h3>
+<ul>
+<li>add option invokeMethods that disable by default executing terminal and cmd methods from echo</li>
+</ul>
+<h3 id="features-25">Features</h3>
+<ul>
+<li>HOLD keymap modifier + HOLD+[SHIFT]+BACKSPACE/DELETE to delete word before and after the cursor <a href="https://github.com/jcubic/jquery.terminal/issues/420">#420</a></li>
+<li>align tabs like in unix terminal <a href="https://github.com/jcubic/jquery.terminal/issues/423">#423</a></li>
+<li><code>tabs</code> terminal options change tab length, not only columns/arrays</li>
+<li>add <code>tabs</code> option for cmd</li>
+<li>improve performance of display_position (when you click on character in long command that change length)</li>
+</ul>
+<h3 id="bugfix-56">Bugfix</h3>
+<ul>
+<li>fix &amp;) in scheme prism formatting <a href="https://github.com/jcubic/jquery.terminal/issues/421">#421</a></li>
+<li>don’t process keys other then enter in reverse search</li>
+<li>fix issue with background in Prismjs css</li>
+<li>insert prism syntax formatter before nested formatting so it work for html if included with unix_formatting</li>
+<li>fix emoji and Unicode surrogate pairs <a href="https://github.com/jcubic/jquery.terminal/issues/422">#422</a></li>
+</ul>
+</section>
+<section id="section-90" class="slide level2">
+<h2>1.20.5</h2>
+<h3 id="bugfix-57">Bugfix</h3>
+<ul>
+<li>one more fix to position in normal function formatter (prism)</li>
+</ul>
+</section>
+<section id="section-91" class="slide level2">
+<h2>1.20.4</h2>
+<h3 id="bugfix-58">Bugfix</h3>
+<ul>
+<li>fix position in normal function formatter (prism)</li>
+<li>fix syntax (prism) function name in developer tools</li>
+</ul>
+</section>
+<section id="section-92" class="slide level2">
+<h2>1.20.3</h2>
+<h3 id="bugfix-59">Bugfix</h3>
+<ul>
+<li>fix regression in overtyping <a href="https://github.com/jcubic/jquery.terminal/issues/409">#409</a></li>
+</ul>
+</section>
+<section id="section-93" class="slide level2">
+<h2>1.20.2</h2>
+<h3 id="bugfix-60">Bugfix</h3>
+<ul>
+<li>escape formatting when using unix formatting in cmd</li>
+<li>fix cursor style while hover over links</li>
+<li>one more fix cursor position</li>
+</ul>
+</section>
+<section id="section-94" class="slide level2">
+<h2>1.20.1</h2>
+<h3 id="bugfix-61">Bugfix</h3>
+<ul>
+<li>fix click after line for last line</li>
+</ul>
+</section>
+<section id="section-95" class="slide level2">
+<h2>1.20.0</h2>
+<h3 id="security-1">Security</h3>
+<ul>
+<li>anyLinks option to disable anything exception http and ftp (when false - default) - it make possible to insert javascript links, which is potential XSS vulnerability</li>
+</ul>
+<h3 id="features-26">Features</h3>
+<ul>
+<li>linksNoFollow option (default false)</li>
+<li>add UMD for utility files <a href="https://github.com/jcubic/jquery.terminal/issues/418">#418</a></li>
+</ul>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>handling backspaces in unix formatting <a href="https://github.com/jcubic/jquery.terminal/issues/409">#409</a>
+<ul>
+<li>handle he same when adding leftovers before backspace in unix formatting</li>
+<li>fix cursor position when text have tabs found when fixing #409</li>
+<li>other fixes to backspaces</li>
+</ul></li>
+<li>fix font change in universal selector <a href="https://github.com/jcubic/jquery.terminal/issues/415">#415</a></li>
+<li>fix regression bug in formatters (emoji demo) <a href="https://github.com/jcubic/jquery.terminal/issues/416">#416</a></li>
+<li>fix cmd::resize() without args that make number of characters equal to 1 <a href="https://github.com/jcubic/jquery.terminal/issues/413">#413</a></li>
+<li>fix click after line <a href="https://github.com/jcubic/jquery.terminal/issues/419">#419</a></li>
+</ul>
+</section>
+<section id="section-96" class="slide level2">
+<h2>1.19.1</h2>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
+<ul>
+<li>fix type definition to match types from <span class="citation" data-cites="types/jquery">@types/jquery</span> <a href="https://github.com/jcubic/jquery.terminal/issues/412">#412</a></li>
+<li>fix infinite loop in regex formatter with loop option <a href="https://github.com/jcubic/jquery.terminal/issues/409#issuecomment-407025872">#409</a></li>
+</ul>
+</section>
+<section id="section-97" class="slide level2">
+<h2>1.19.0</h2>
+<h3 id="features-27">Features</h3>
+<ul>
+<li>add TypeScript definition file</li>
+<li>update formatters API to have a way to return position after replace from function formatter</li>
+<li>regex formatters and $.tracking_replace now accept function as replacement</li>
+<li>update unix formatters to use new API so they work with command line</li>
+<li>set exit to false if no login provided</li>
+</ul>
+<h3 id="bugs">Bugs</h3>
+<ul>
+<li>fix overtyping function <a href="https://github.com/jcubic/jquery.terminal/issues/409">#409</a></li>
+<li>remove CR characters only for display</li>
+<li>don’t invoke onPosition change when calling position and don’t change the value</li>
+<li>fix clearing CR characters that was causing removal of empty lines <a href="https://github.com/jcubic/jquery.terminal/issues/411">#411</a></li>
+</ul>
+</section>
+<section id="section-98" class="slide level2">
+<h2>1.18.0</h2>
+<h3 id="feature-4">Feature</h3>
+<ul>
+<li>looping regex formatters that replace until they don’t match the regex</li>
+<li>add tracking_replace to $.terminal namespace</li>
+<li>$.terminal.syntax helper</li>
+<li>new language for prism: “website” that handle html, javascript and css syntax</li>
+</ul>
+<h3 id="bugs-1">Bugs</h3>
+<ul>
+<li>handle formatters that replace backspaces and characters before <a href="https://github.com/jcubic/jquery.terminal/issues/409">#409</a></li>
+<li>fix broken &lt; &gt; &amp; with cmd + prism <a href="https://github.com/jcubic/jquery.terminal/issues/410">#410</a></li>
+<li>fix background in prism with black background terminal</li>
+<li>remove warning from nested_formatting when if find nested formatting</li>
+</ul>
+</section>
+<section id="section-99" class="slide level2">
+<h2>1.17.0</h2>
+<h3 id="features-28">Features</h3>
+<ul>
+<li>add ascii_table utility in separated file</li>
+<li>per user command line history</li>
+<li>add $.terminal.parse_options which return same object as yargs parser</li>
+<li>$.jrpc helper now return its own created promise instead of $.ajax</li>
+<li>add wcwidth as dependency so it will always show wider characters correctly (in browsers will work the same as optional)</li>
+<li>expose terminal exception in $.terminal namespace</li>
+<li>new API option doubleTab <a href="https://github.com/jcubic/jquery.terminal/issues/405">#405</a></li>
+</ul>
+<h3 id="bugfix-62">Bugfix</h3>
+<ul>
+<li>disable history in read &amp; login (regression from 1.16.0 history interpreter option)</li>
+<li>fix recursive error on extended commands (but it will only work on exact same commands without trailing white space)</li>
+<li>create copy of Prism for formatter so it can be used with normal html based prism snippets</li>
+<li>double fix: command line when formatter return empty formatting and prism that return empty formatting after <code>(</code> and space</li>
+<li>third fix fox jumping on right click</li>
+<li>fix columns method</li>
+<li>fix infinite loop when regex in formatters don’t have g flag</li>
+<li>fix parsing escape quotes</li>
+<li>fix split equal to handle brackets when using without formatting</li>
+<li>fix command line wrapping if prompt contain brackets as text <a href="https://github.com/jcubic/jquery.terminal/issues/407">#407</a></li>
+<li>insert ^C where cursor was located <a href="https://github.com/jcubic/jquery.terminal/issues/404">#404</a></li>
+<li>fix echo crlf (windows line ending) <a href="https://github.com/jcubic/jquery.terminal/issues/408">#408</a></li>
+<li>allow to call cmd without arguments</li>
+<li>rename undocumented remove API method to remove_line so you can call jQuery remove</li>
+<li>fix throwing exception when there is error in formatter (it now only show alert)</li>
+<li>fix double exception when exec command throw exception</li>
+</ul>
+</section>
+<section id="section-100" class="slide level2">
+<h2>1.16.1</h2>
+<h3 id="bugs-2">Bugs</h3>
+<ul>
+<li>fix paste/select all when click below .cmd</li>
+<li>second fix to jumping on right click (context menu) <a href="https://github.com/jcubic/jquery.terminal/issues/399">#399</a></li>
+<li>change $.terminal.prism_formatting to $.terminal.prism</li>
+</ul>
+</section>
+<section id="section-101" class="slide level2">
+<h2>1.16.0</h2>
+<h3 id="features-29">Features</h3>
+<ul>
+<li>allow to have limited import when export is save and restored from JSON <a href="https://github.com/jcubic/jquery.terminal/issues/393">#393</a></li>
+<li>add support for new u and s regex flags when parsing commands</li>
+<li>add less plugin based on the one from leash</li>
+<li>supports for promises returned from completion function</li>
+<li>add prism.js file that include monkey patch for PrismJS library (for syntax highlight) to output terminal formatting</li>
+<li>better read method <a href="https://github.com/jcubic/jquery.terminal/issues/397">#397</a></li>
+<li>handle promises returned from login and async login function <a href="https://github.com/jcubic/jquery.terminal/issues/401">#401</a></li>
+<li>add history option for push for easy disabling history for new interpreter</li>
+<li>add scrollObject option, so you can use body when terminal is on full screen div without height</li>
+</ul>
+<h3 id="bugs-3">Bugs</h3>
+<ul>
+<li>fix resizer in Firefox <a href="https://github.com/jcubic/jquery.terminal/issues/395">#395</a></li>
+<li>fix $.terminal.columns and echo array <a href="https://github.com/jcubic/jquery.terminal/issues/394">#394</a></li>
+<li>fix $.terminal.columns for wider characters and terminal formatting</li>
+<li>fix rows() when using –size <a href="https://github.com/jcubic/jquery.terminal/issues/398">#398</a></li>
+<li>fix null in JSON hash</li>
+<li>fix jumping on right click (context menu) <a href="https://github.com/jcubic/jquery.terminal/issues/399">#399</a></li>
+<li>fix formatting inside brackets <a href="https://github.com/jcubic/jquery.terminal/issues/396">#396</a></li>
+<li>fix async interpreter <a href="https://github.com/jcubic/jquery.terminal/issues/400">#400</a></li>
+<li>use window resize when terminal added to body</li>
+</ul>
+</section>
+<section id="section-102" class="slide level2">
+<h2>1.15.0</h2>
+<h3 id="features-30">Features</h3>
+<ul>
+<li>allow to invoke terminal and cmd methods from extended commands (<code>[[ terminal::set_prompt("&gt;&gt;&gt; ") ]]</code>)</li>
+<li>new API method invoke_key that allow to invoke shortcut <code>terminal.invoke_key('CTRL+L')</code> will clear the terminal</li>
+<li>shift+backspace now do the same thing as backspace</li>
+</ul>
+<h3 id="bugs-4">Bugs</h3>
+<ul>
+<li>fix wider characters in IE <a href="https://github.com/jcubic/jquery.terminal/issues/380">#380</a></li>
+<li>fix issue with number of characters when terminal is added to DOM after creation in IE</li>
+<li>fix scrolling on body in Safari</li>
+<li>fix exception when entering JSON with literal strings <a href="https://github.com/jcubic/jquery.terminal/issues/389">#389</a></li>
+<li>fix orphaned closing bracket on multiline echo <a href="https://github.com/jcubic/jquery.terminal/issues/390">#390</a></li>
+<li>fix whitespace insert after first character after first focus <a href="https://github.com/jcubic/jquery.terminal/issues/391">#391</a></li>
+<li>fix open link when click on url from exception</li>
+</ul>
+</section>
+<section id="section-103" class="slide level2">
+<h2>1.14.0</h2>
+<h3 id="features-31">Features</h3>
+<ul>
+<li>pass options to formatters and accept option <code>unixFormattingEscapeBrackets</code> in <code>unix_formatting</code> (PR by <a href="https://github.com/ml1nk">Marcel Link</a>)</li>
+<li>improve performance of repaint and layout whole page when changing content of the terminal</li>
+<li>use ch unit for wide characters if browser support it (it have wide support then css variables)</li>
+<li>keymap terminal method and allow to set shortcuts on runtime</li>
+</ul>
+<h3 id="bugs-5">Bugs</h3>
+<ul>
+<li>fix newline as first character in formatting <a href="https://github.com/jcubic/jquery.terminal/pull/375">#375</a>.</li>
+<li>fix error when echo undefined (it will echo string undefined since it’s converted to string)</li>
+<li>fix first argument to keymap function, it’s now keypress event</li>
+<li>fix resizing issue when scrollbar appear/disappear while you type <a href="https://github.com/jcubic/jquery.terminal/issues/378">#378</a></li>
+<li>fix cut of cursor when command line had full length lines and it was at the end <a href="https://github.com/jcubic/jquery.terminal/issues/379">#379</a></li>
+</ul>
+</section>
+<section id="section-104" class="slide level2">
+<h2>1.12.1</h2>
+<ul>
+<li>fix minified css file + fix scrollbar</li>
+</ul>
+</section>
+<section id="section-105" class="slide level2">
+<h2>1.12.0</h2>
+<h3 id="features-32">Features</h3>
+<ul>
+<li>default options for cmd plugin</li>
+<li>caseSensitiveSearch option for both terminal and cmd plugins</li>
+</ul>
+<h3 id="bugfixes">Bugfixes</h3>
+<ul>
+<li>fix urls ending with slash <a href="https://github.com/jcubic/jquery.terminal/issues/365">#365</a></li>
+<li>stringify non string commands in set_command</li>
+<li>fix scrolling of the page, when press space, after you click on the link</li>
+<li>fix scrolling flicker when terminal added to body</li>
+<li>small css fixes for element containers when terminal added to body</li>
+<li>fix for wide characters inside bigger text <a href="https://github.com/jcubic/jquery.terminal/issues/369">#369</a></li>
+<li>when clicking on terminal and it already had focus the textarea was blured <a href="https://github.com/jcubic/jquery.terminal/issues/370">#370</a></li>
+<li>fix parsing empty strings “” or ’’</li>
+<li>fix warning from webpack about –char-width without default <a href="https://github.com/jcubic/jquery.terminal/issues/371">#371</a></li>
+</ul>
+</section>
+<section id="section-106" class="slide level2">
+<h2>1.11.4</h2>
+<ul>
+<li>handle non string and functions in error the same as in echo</li>
+<li>fix selection for raw output (reported by <span class="citation" data-cites="ovk">@ovk</span>)</li>
+<li>hide font resizer so you actually can select text starting from top left</li>
+</ul>
+</section>
+<section id="section-107" class="slide level2">
+<h2>1.11.3</h2>
+<ul>
+<li>create empty div for function line that return empty string, that was causing issues with update <a href="https://github.com/jcubic/jquery.terminal/issues/363">#363</a></li>
+<li>set classes from terminal to fake terminal that is used to calculate character size</li>
+<li>don’t use length css variable on formatting when length is the same as wcwidth</li>
+<li>css fixes for terminal in jQuery UI dialog (dterm)</li>
+</ul>
+</section>
+<section id="section-108" class="slide level2">
+<h2>1.11.2</h2>
+<ul>
+<li>fix issue with –char-width == 0 if terminal have display:none</li>
+<li>fix DELETE numpad key on IE</li>
+<li>ignore invalid procedures description in system.describe</li>
+<li>fix font resizer and init resizers when terminal hidden initialy</li>
+<li>fix broken wrapping in new feature of updating divs on resize</li>
+</ul>
+</section>
+<section id="section-109" class="slide level2">
+<h2>1.11.1</h2>
+<ul>
+<li>fix IE inconsistency in key property for numpad calc keys (reported by <span class="citation" data-cites="ovk">@ovk</span> <a href="https://github.com/jcubic/jquery.terminal/issues/362">#362</a></li>
+<li>fix completion skipping letters (reported by <span class="citation" data-cites="ovk">@ovk</span> <a href="https://github.com/jcubic/jquery.terminal/issues/361">#361</a>)</li>
+<li>fix issue with last character in line beeing closing braket (reported by <span class="citation" data-cites="arucil">@arucil</span> <a href="https://github.com/jcubic/jquery.terminal/issues/358">#358</a>)</li>
+</ul>
+</section>
+<section id="section-110" class="slide level2">
+<h2>1.11.0</h2>
+<h3 id="features-33">Features</h3>
+<ul>
+<li>update API method accept options 3rd argument</li>
+<li>speed up refresh on resize by checking character size in font resizer (reported by <span class="citation" data-cites="artursOs">@artursOs</span>)</li>
+<li>change command line num chars on resize + settings.numChars (reported by <span class="citation" data-cites="artursOs">@artursOs</span> <a href="https://github.com/jcubic/jquery.terminal/issues/353">#353</a>)</li>
+<li>add remove api method that call update(line, null);</li>
+<li>don’t call scroll to bottom on resize/refresh/update/remove</li>
+<li>improve scroll_element plugin by using document.scrollingElement if present and cache the value</li>
+<li>resizer plugin use ResizeObserver if defined</li>
+<li>remove fake call to finalize in echo to catch potential error</li>
+<li>silent boolean 3rd argument to cmd::set and 2nd to terminal::set_command</li>
+<li>handy classed to change cursor animation in IE ### Bugs</li>
+<li>don’t prevent default scroll when terminal have no scrollbar</li>
+<li>restart cursor animation on keydown (requested by <span class="citation" data-cites="theMeow">@theMeow</span> on chat)</li>
+<li>don’t redraw whole terminal in update api method</li>
+<li>show exception from onAfterRedraw on terminal</li>
+<li>don’t show first argument to method in help command when login is used</li>
+<li>allow to call disable/focus(false) from command + fix focus(false) with single terminal (reported by Eric Lindgren <a href="https://github.com/jcubic/jquery.terminal/issues/359">#359</a>)</li>
+<li>fix autofocus on init</li>
+</ul>
+</section>
+<section id="section-111" class="slide level2">
+<h2>1.10.1</h2>
+<ul>
+<li>fix scroll to bottom on scrolling when terminal is disabled (reported by <span class="citation" data-cites="RomanPerin">@RomanPerin</span> <a href="https://github.com/jcubic/jquery.terminal/issues/355">#355</a>)</li>
+</ul>
+</section>
+<section id="section-112" class="slide level2">
+<h2>1.10.0</h2>
+<h3 id="features-34">Features</h3>
+<ul>
+<li>new api for formatters Array with 2 elements regex and replacement string (it fix issue when formatters change length of string - emoji demo)</li>
+<li>normalize IE key property for keymap + always use +SPACEBAR if there is any control key</li>
+<li>cursor text for terminal and cmd</li>
+<li>onEchoCommand callback gets second argument <code>command</code></li>
+<li>cmd keymap api function, along with object and no arguments, accept string as first argument and function as second</li>
+<li>only one exception per callback event</li>
+<li>select all context menu (based on idea from CodeMirror) ### Bugs</li>
+<li>fix cursor in IE and iOS/Safari reported by <span class="citation" data-cites="RinaVladimyrovna">@RinaVladimyrovna</span> <a href="https://github.com/jcubic/jquery.terminal/issues/350">#350</a></li>
+<li>don’t apply formatters in echo commands for completion (found by applying completion to emoji demo)</li>
+<li>fix substring and html entity (entering &lt; &amp; &gt; in command line was showing entity not character)</li>
+<li>paste context menu not for img tag to allow to save as</li>
+<li>fix nested formatting (by introducing <strong>meta</strong> on formatter function that apply the function to whole string)</li>
+<li>fix format_split when text have \ character before ]</li>
+<li>fix line ending on windows in command line (CRLF)</li>
+<li>fix copy from command line</li>
+<li>fix cursor position when command line have formatting (using formatters)</li>
+<li>fix cursor position when command line have 3 lines</li>
+<li>don’t apply formatters for greetings not only for signture (user can use formatting because he control the string)</li>
+<li>fix max call stack exception when error happen in onEchoCommand</li>
+<li>Chinese character occupy 2 characters same as in linux terminal (requirement wcwidth and css variables)</li>
+<li>fix substring and string like ‘&lt;a’ that was breaking command line</li>
+<li>fix newlines in string when do parse/split _command (used by command line)</li>
+<li>fix split equal and command line splitting</li>
+<li>fix exception in keymap when calling original in the one that was overwriten by terminal like CTRL+V (reported by Ravi Teja Mamidipaka <a href="https://github.com/jcubic/jquery.terminal/issues/351">#351</a>)</li>
+<li>not all keymaps had terminal as this context</li>
+</ul>
+</section>
+<section id="section-113" class="slide level2">
+<h2>1.9.0</h2>
+<h3 id="features-35">Features</h3>
+<ul>
+<li>new api utils $.terminal.length and $.terminal.columns</li>
+<li>echo array (resizable in columns that fit the width, using settings.tabs as pad right)</li>
+<li>callback function parseObject that’s called on object different then string (on render)</li>
+<li>calling option method with numRows or numChars redraw terminal output (for testing)</li>
+<li>onFlush callback (called when text is rendered on screen in flush method)</li>
+<li>regex helper <code>$.terminal.formatter</code> created using Symbols can be use instead of regex</li>
+<li>new option pasteImage (default true) - requested by <span class="citation" data-cites="ssv1000">@ssv1000</span> <a href="https://github.com/jcubic/jquery.terminal/issues/342">#342</a></li>
+<li>CTRL+C cancel command like in bash if no selection - requested by <span class="citation" data-cites="abhiks19">@abhiks19</span> <a href="https://github.com/jcubic/jquery.terminal/issues/343">#343</a></li>
+<li>refresh API method</li>
+<li>new api method display_position in cmd plugin that return corrected position of the cursor if cursor in the middle of the word that got replaced by longer or shorter string in formatting function (fix for emoji demo) ### Bugs</li>
+<li>add missing –size default for underline animation</li>
+<li>fix trim of spaces in front of lines when keep words is true</li>
+<li>fix newline in prompt found while <a href="https://stackoverflow.com/a/46399564/387194">answering question on SO</a></li>
+<li>fix insert of newline in the middle of the command line if there is “word space word” and you press space after space</li>
+<li>fix infinite loop in <code>split_equal</code> with keep words when word is longer than the limit and there is space before long word</li>
+<li>fix paste on MacOS - regresion after adding context menu paste (reported by Ravi Teja Mamidipaka <a href="https://github.com/jcubic/jquery.terminal/issues/340">#340</a>)</li>
+<li>fix cursor in textarea in Edge and IE (reported by Tejaswi Rohit Anupindi <a href="https://github.com/jcubic/jquery.terminal/issues/344">#344</a>)</li>
+<li>fix input for Android 4.4 in emulator (tested on saucelabs.com)</li>
+<li>fix selection + css variables (know bug in MS Edge)</li>
+<li>fix apply/call issue that was causing Android 2.3 to crash</li>
+<li>fix context menu on selected text (the selected text was cleared)</li>
+<li>allow to call original terminal keymap for overwrites defined in terminal (not only the ones defined in cmd)</li>
+<li>escape <code>&lt;</code> and <code>&gt;</code> issue reported by <span class="citation" data-cites="itsZN">@itsZN</span> <a href="https://github.com/jcubic/jquery.terminal/issues/345">#345</a></li>
+<li>fix moving cursor when formatting change size of text (found when creating emoji demo) the click was rewritten using span for each character</li>
+<li>fix command line when for wide characters</li>
+<li>don’t move the cursor on click when cmd disabled</li>
+<li>fix substring</li>
+</ul>
+</section>
+<section id="section-114" class="slide level2">
+<h2>1.8.0</h2>
+<ul>
+<li>allow to return promise from prompt + fix promise in echo</li>
+<li>add back context menu paste that was removed by mistake</li>
+<li>make terminal work in Data URI (access to cookies was throwing exception in Chrome)</li>
+<li>fix case insensitive autocomplete when there is single completion</li>
+<li>fix completion error when more then one completion (PR by Anton Vasilev <a href="https://github.com/jcubic/jquery.terminal/pull/337">#337</a>)</li>
+<li>fix artificialy triggered click (reported by Paul Smirnov <a href="https://github.com/jcubic/jquery.terminal/issues/338">#338</a>)</li>
+<li>fix focus issue when you have multiple terminals</li>
+<li>fix css animations</li>
+<li>fix move cursor on click</li>
+<li>fix quick click to focus + CTRL+V (reported by <span class="citation" data-cites="artursOs">@artursOs</span> <a href="https://github.com/jcubic/jquery.terminal/issues/336">#336</a>)</li>
+<li>fix outputLimit</li>
+<li>fix exception that sometimes happen on mouseup</li>
+</ul>
+</section>
+<section id="section-115" class="slide level2">
+<h2>1.7.2</h2>
+<ul>
+<li>fix blur when click ouside terminal when element you click is on top of terminal</li>
+<li>this is terminal instance inside echo function</li>
+<li>fix localStorage exception and empty line height while creating terminal from data URI</li>
+<li>refocus when click on terminal (fix for <code>:focus-within</code>)</li>
+</ul>
+</section>
+<section id="section-116" class="slide level2">
+<h2>1.7.1</h2>
+<ul>
+<li>fix blur terminals when open context menu and then click right mouse button (sometimes last terminal didn’t get disabled)</li>
+<li>fix backspase</li>
+</ul>
+</section>
+<section id="section-117" class="slide level2">
+<h2>1.7.0</h2>
+<h3 id="features-36">Features</h3>
+<ul>
+<li>add option caseSensitiveAutocomplete default to true <a href="https://github.com/jcubic/jquery.terminal/issues/332">#332</a></li>
+<li>expose Stack/Cycle/History in $.terminal so they can be tested</li>
+<li>make <code>:focus-within .prompt</code> selector work with terminal (work also on codepen) ### Bugs</li>
+<li>fix jumping of terminal when created one after another and changing the one that have focus in Edge</li>
+<li>fix issue that all terminals was enabled not the last one created</li>
+<li>fix issue that on click next terminal get focused on browsers with touch screen (reported by <span class="citation" data-cites="itsZN">@itsZN</span> <a href="https://github.com/jcubic/jquery.terminal/issues/330">#330</a>)</li>
+<li>fix missing default keymap in cmd plugin (found on SO by Arnaldo Montoya)</li>
+<li>update dterm to enable terminal when is visible (when open) using IntersectionObserver</li>
+<li>fix issue with focus on click on MacOS (reported by <span class="citation" data-cites="RomanPerin">@RomanPerin</span> <a href="https://github.com/jcubic/jquery.terminal/issues/255">#255</a>)</li>
+<li>fix pasting (reported by <span class="citation" data-cites="artursOs">@artursOs</span> <a href="https://github.com/jcubic/jquery.terminal/issues/331">#331</a>)</li>
+<li>fix unescaped entity error (reported by Nikolai Orekhov <a href="https://github.com/jcubic/jquery.terminal/issues/333">#333</a>)</li>
+<li>fix onFocus and onBlur events</li>
+<li>fix blur textarea on disable</li>
+</ul>
+</section>
+<section id="section-118" class="slide level2">
+<h2>1.6.4</h2>
+<ul>
+<li>just missed build</li>
+</ul>
+</section>
+<section id="section-119" class="slide level2">
+<h2>1.6.3</h2>
+<ul>
+<li>fix issue with auto-enable and insert to DOM after terminal was created</li>
+<li>fix issue with space and dead keys (reported by David Peter)</li>
+</ul>
+</section>
+<section id="section-120" class="slide level2">
+<h2>1.6.2</h2>
+<ul>
+<li>fix altGr+key issue reported by Erik Lilja</li>
+</ul>
+</section>
+<section id="section-121" class="slide level2">
+<h2>1.6.1</h2>
+<ul>
+<li>don’t call encode in escape_formatting (requested by <span class="citation" data-cites="ovk">@ovk</span>)</li>
+</ul>
+</section>
+<section id="section-122" class="slide level2">
+<h2>1.6.0</h2>
+<h3 id="features-37">Features</h3>
+<ul>
+<li>new API method apply_formatters</li>
+<li>add UMD (requested by <span class="citation" data-cites="fazelfarajzade">@fazelfarajzade</span>)</li>
+<li>add new events: onEchoCommand and onAfterRedraw (requested by <span class="citation" data-cites="ovk">@ovk</span>) ### Bugs</li>
+<li>fix issue that formatters where applied to formatting (discovered by issue from <span class="citation" data-cites="ovk">@ovk</span>)</li>
+</ul>
+</section>
+<section id="section-123" class="slide level2">
+<h2>1.5.3</h2>
+<ul>
+<li>fix cursor over entity (mainly &nbsp;) issue reported by <span class="citation" data-cites="ovk">@ovk</span></li>
+<li>fix space scroll page</li>
+</ul>
+</section>
+<section id="section-124" class="slide level2">
+<h2>1.5.2</h2>
+<ul>
+<li>keep formatting when cursor is over one, issue reported by <span class="citation" data-cites="Oleg">@Oleg</span> on StackOverflow</li>
+<li>fix jumping prompt when it have newlines</li>
+</ul>
+</section>
+<section id="section-125" class="slide level2">
+<h2>1.5.1</h2>
+<ul>
+<li>fix autofocus with position: fixes (reported by <span class="citation" data-cites="ovk">@ovk</span>)</li>
+<li>fix input method using sogou keyboard on windows (reported by <span class="citation" data-cites="hnujxm">@hnujxm</span>)</li>
+<li>fix long line wrapping and click to move cursor with wider characters like Chinese</li>
+</ul>
+</section>
+<section id="section-126" class="slide level2">
+<h2>1.5.0</h2>
+<h3 id="features-38">Features</h3>
+<ul>
+<li>run fake keypress and keydown created in input when not fired by the browser (android)</li>
+<li>improve perfomance by calculating char size only on resize and init (issue reported by <span class="citation" data-cites="artursOs">@artursOs</span>)</li>
+<li>new cmd delegate method <code>get_position</code>/<code>set_position</code> added to terminal</li>
+<li>resolve promises returned from intrpreter in jQuery 2.x</li>
+<li>allow to use newlines in prompt</li>
+<li>don’t rethrow user exception when exceptionHandler is set (mainly for testing that option)</li>
+<li>add option describe that is a string mapping procs from system.describe procs (default “procs”) it can be “result” or “result.procs” if system.describe is normal JSON-RPC method ### Bugs</li>
+<li>add option to cmd::disable to not blur so it don’t hide android keyboard on pause</li>
+<li>don’t enable terminal on init on Android</li>
+<li>fix next key after CTRL+V that was triggering input event (reported by <span class="citation" data-cites="artursOs">@artursOs</span>)</li>
+<li>fix parsing strings</li>
+<li>don’t hide virtual keyboard on Android when called pause()</li>
+<li>fix input on Firefox with google keyboard (reported by Filip Wieland)</li>
+<li>disable terminal on resume event in cordova (is the terminal is disabled when no virutal keyboard)</li>
+<li>fix moving cursor on click (after multiline command) and the height of the cmd plugin</li>
+<li>fix escape completion (that enabled by default)</li>
+<li>remove hardcoded DemoService from json-rpc system.describe</li>
+</ul>
+</section>
+<section id="section-127" class="slide level2">
+<h2>1.4.3</h2>
+<ul>
+<li>don’t execute keypress callback when terminal is disabled (reported by <span class="citation" data-cites="artursOs">@artursOs</span>)</li>
+<li>fix android (input event was not bind)</li>
+<li>disable keypress when you press CTRL+key and caps-lock is on (bug in firefox reported by <span class="citation" data-cites="artursOs">@artursOs</span>)</li>
+</ul>
+</section>
+<section id="section-128" class="slide level2">
+<h2>1.4.2</h2>
+<ul>
+<li>fix context menu pasting and pasting images when terminal not in focus (thanks to Alex Molchanov for reporing a bug)</li>
+</ul>
+</section>
+<section id="section-129" class="slide level2">
+<h2>1.4.1</h2>
+<ul>
+<li>add rel=“noopener” to all links</li>
+<li>remove anonymous function name that was duplicating parameter with the same name that was causing error in PhantomJS (thanks to <span class="citation" data-cites="rteshnizi">@rteshnizi</span> for bug report)</li>
+</ul>
+</section>
+<section id="section-130" class="slide level2">
+<h2>1.4.0</h2>
+<h3 id="features-39">Features</h3>
+<ul>
+<li>add paste using context menu ### Bugs</li>
+<li>fix recursive exception when <code>finalize</code> echo function throw exception</li>
+<li>fix underline animation</li>
+<li>fix <code>wordAutocomplete</code> and add <code>completionEscape</code> option (issue reported by Quentin Barrand)</li>
+<li>improve parsing commands (it now convert “foo”bar’baz’ to foobarbaz like bash)</li>
+<li>fix normalize and substring</li>
+<li>remove empty formatting in normalize function</li>
+</ul>
+</section>
+<section id="section-131" class="slide level2">
+<h2>1.3.1</h2>
+<ul>
+<li>fix cols/rows that was causing signature to not show</li>
+</ul>
+</section>
+<section id="section-132" class="slide level2">
+<h2>1.3.0</h2>
+<h3 id="feateres">Feateres</h3>
+<ul>
+<li>paste of images (using <code>echo</code>) in browsers that support clipboard event</li>
+<li>add <code>args_quotes</code> to <code>parse_/split_ command</code> api utilities</li>
+<li>add <code>IntersectionObserver</code> to add resizer and call resize (not all browser support it, polyfill exists)</li>
+<li>add <code>MutationObserver</code> to detect when terminal is added/removed from DOM and call <code>IntersectionObserver</code> when added</li>
+<li>new API utiltites <code>normalize</code>, <code>substring</code>, <code>unclosed_strings</code> and helper <code>iterate_formatting</code></li>
+<li>add default formatter that handle nested formatting</li>
+<li>when using rpc or object interpreter it will throw exception when there are unclosed strings</li>
+<li>element resizer (as jQuery plugin) that work inside iframe ### Bugs</li>
+<li>remove <code>onPop</code> event from main interpreter (with null as next)</li>
+<li>mousewheel work without jQuery mousewheel and fix jumps of text</li>
+<li>fix number of rows after adding underline animation</li>
+<li>fix outputLimit</li>
+<li>fix calculation of cols and rows</li>
+<li>strings object are not longer saved in variable on terminal creation so you can change it dynamically after terminal is created (use command to change language)</li>
+</ul>
+</section>
+<section id="section-133" class="slide level2">
+<h2>1.2.0</h2>
+<h3 id="features-40">Features</h3>
+<ul>
+<li>make terminal accessible to screen readers:
+<ul>
+<li>terminal focus using tab key (we can’t blur on tab keybecause it’s used to enter tab character or for completion)</li>
+<li>make command line in cmd plugin hidden from screen readers</li>
+<li>add role=“log” to terminal-output and hide echo command, so result of command are read by screen reader but not command that user typed and prompt</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-134" class="slide level2">
+<h2>1.1.4</h2>
+<ul>
+<li>fix size with css var with underline animation</li>
+<li>fix minified css (<code>cssnano</code> was removing unused animations)</li>
+</ul>
+</section>
+<section id="section-135" class="slide level2">
+<h2>1.1.3</h2>
+<ul>
+<li>fix click to change position when command have newlines</li>
+</ul>
+</section>
+<section id="section-136" class="slide level2">
+<h2>1.1.2</h2>
+<ul>
+<li>from pauseEvents option form cmd plugin - it always execute keyboard events</li>
+</ul>
+</section>
+<section>
+<section id="section-137" class="title-slide slide level1 center">
+<h1>1.1.1</h1>
+<ul>
+<li>don’t fire <code>keymap</code> when terminal paused</li>
+<li>fix delete in IE11</li>
+<li>restore order of keymap/keydown - keydown is executed first</li>
+</ul>
+</section>
+<section id="section-138" class="slide level2">
+<h2>1.1.0</h2>
+<ul>
+<li>fix CMD+V on MacOS chrome</li>
+<li>add stay option to insert same as in cmd plugin</li>
+<li>add option <code>pauseEvents</code> - default set to true</li>
+<li>fix exception when calling purge more then once</li>
+<li>fix <code>history: false</code> option</li>
+<li><code>keymap</code> have priority over <code>keydown</code> so you can overwrite with CTRL+D <code>keymap</code> function</li>
+</ul>
+</section>
+<section id="section-139" class="slide level2">
+<h2>1.0.15</h2>
+<ul>
+<li>fix <code>echo</code> command when press tab twice and there are more then one completion</li>
+<li>fix CTRL+D when paused (it now resume the interpreter)</li>
+<li>focus don’t enable terminal when paused (it was hidden by you could enter text)</li>
+</ul>
+</section>
+<section id="section-140" class="slide level2">
+<h2>1.0.14</h2>
+<ul>
+<li>fix moving of the content on focus/blur when command line at the bottom</li>
+<li>don’t move cursor on click when focusing</li>
+<li>throw exception about key property polyfill on init of cmd plugin</li>
+</ul>
+</section>
+<section id="section-141" class="slide level2">
+<h2>1.0.12</h2>
+<ul>
+<li>fix for Android/Chrome that have unidentified as key property for single character keys</li>
+<li>fix entering text in the middle on Android/Chrome</li>
+<li>fix backspace on Android/Chrome/SwiftKey</li>
+<li>fix cursor position when click on word completion on Android</li>
+</ul>
+</section>
+<section id="section-142" class="slide level2">
+<h2>1.0.11</h2>
+<ul>
+<li>fix dead keys logic (for special keys that don’t trigger keypress like delete)</li>
+</ul>
+</section>
+<section id="section-143" class="slide level2">
+<h2>1.0.9/10</h2>
+<ul>
+<li>fix dead_keys logic (when keypress after special keys like arrows)</li>
+</ul>
+</section>
+<section id="section-144" class="slide level2">
+<h2>1.0.8</h2>
+<ul>
+<li>fix paste in IE and Edge</li>
+</ul>
+</section>
+<section id="section-145" class="slide level2">
+<h2>1.0.7</h2>
+<ul>
+<li>fix <code>exec</code> when <code>pause</code> called in <code>onInit</code></li>
+<li>fix reverse search</li>
+<li>fix 3 argument in completion error</li>
+<li>fix login from hash for async JSON-RPC</li>
+<li>fix <code>focus(false)</code>/<code>disable</code> in <code>exec</code> from hash</li>
+<li>fix regression of pasting in MacOS</li>
+<li>scroll to bottom in insert method</li>
+<li>remove default extra property from interpreter (all properties are saved in interperter) and make main options extra pass to intepterer not using extra property</li>
+<li>fix completion when text have spaces (escaped or inside quotes)</li>
+<li>fix dead keys on MacOSX (testing shortcuts now require keydown and keypress events)</li>
+</ul>
+</section>
+<section id="section-146" class="slide level2">
+<h2>1.0.6</h2>
+<ul>
+<li>fix AltGr on non US keyboard layouts</li>
+</ul>
+</section>
+<section id="section-147" class="slide level2">
+<h2>1.0.5</h2>
+<ul>
+<li>fix CTRL+D to delete forward one character</li>
+<li>don’t use user agent sniffing to get scroll element if terminal attached to body</li>
+<li>fix &amp; on French layout</li>
+</ul>
+</section>
+<section id="section-148" class="slide level2">
+<h2>1.0.3/4</h2>
+<ul>
+<li>fix keypress with key polyfill</li>
+</ul>
+</section>
+<section id="section-149" class="slide level2">
+<h2>1.0.2</h2>
+<ul>
+<li>fix CTRL+V in Firefox and IE</li>
+<li>fix issue in jQuery &gt;= 3.0</li>
+<li>fix space, backspace, resize and arrows in IE</li>
+<li>fix middle mouse paste on GNU/Linux</li>
+</ul>
+</section>
+<section id="section-150" class="slide level2">
+<h2>1.0.1</h2>
+<ul>
+<li>fix signature</li>
+</ul>
+</section>
+<section id="section-151" class="slide level2">
+<h2>1.0.0</h2>
+<h3 id="features-41">FEATURES:</h3>
+<ul>
+<li>copy to system clipboard when copy to kill area</li>
+<li>simplify changing of terminal colors using css variables</li>
+<li>always export history and import when importHistory option is true</li>
+<li>add bar and underline cursor animations and a way to enable it with single css variable</li>
+<li>recalcualate <code>cols</code> and <code>rows</code> on terminal resize (not only window)</li>
+<li><code>request</code>/<code>response</code> and <code>onPush</code>/<code>onPop</code> callbacks</li>
+<li>all callbacks have terminal as <code>this</code> (terminal in parameter stay the same)</li>
+<li>add option softPause to control pause visible option - it don’t hide the prompt when set to true</li>
+<li>add wordAutocomplete option (default true)</li>
+<li>add complete and <code>before_cursor</code> api methods and use it for autocomplete</li>
+<li>formatting for command line (you can’t type formatting but you can use $.terminal.formatters to</li>
+<li>format command you’re writing)</li>
+<li>new option formatters for echo (error method by default disable formatters)</li>
+<li>interpeter and terminal accept extra option that can be use in onPop or onPush</li>
+<li>add <code>keymap</code> option to cmd, terminal and interpreter where you can add shortcuts</li>
+<li>clicking on character, in cmd plugin, move cursor to that character</li>
+</ul>
+<h3 id="bugs-6">BUGS:</h3>
+<ul>
+<li>fix width calculation with scrollbar visible</li>
+<li>fix exception in Firefox throw by setSelectionRange in caret plugin</li>
+<li>make <code>echo</code> sync when <code>echo</code> string or function (flush didn’t work on codepen)</li>
+<li>fix <code>onCommandChange</code> callback on backspace</li>
+<li>Don’t echo extended commands on resize</li>
+<li>use <code>JSON.parse</code> to process strings when parsing command line</li>
+<li>fix rpc in array when there are no system.describe</li>
+<li>call exeptionHandler on every exception (even iternal)</li>
+<li>fix echo resolved content when interpreter return a promise</li>
+<li>fix for valid <code>/[/]/g</code> regex</li>
+<li>fix pushing JSON-RPC intepreter</li>
+<li>fix selection in IE</li>
+<li>clear selection when click anywhere in the terminal</li>
+<li>fix removing global events on terminal destroy</li>
+<li>don’t execute javascript file when fetching line that trigger exception in browser that have fileName in exception (like Firfox)</li>
+</ul>
+<h3 id="breaking-changes">BREAKING CHANGES:</h3>
+<ul>
+<li>completion function now have two arguments string and callback and terminal is in this</li>
+<li>removed <code>setInterpreter</code>, <code>parseArguments</code>, <code>splitArguments</code>, <code>parseCommand</code> and <code>splitCommand</code></li>
+<li>if you execute keydown event manualy to trigger terminal/cmd shortcuts you need to pass key property with key name (see spec/terminalSpec.js file)</li>
+</ul>
+</section>
+<section id="section-152" class="slide level2">
+<h2>0.11.23</h2>
+<ul>
+<li>add <code>scrollBottomOffset</code> option</li>
+</ul>
+</section>
+<section id="section-153" class="slide level2">
+<h2>0.11.22</h2>
+<ul>
+<li>scroll to bottom of the terminal when option scrollOnEcho is set to false but the terminal is at the bottom</li>
+<li>add new api methods <code>is_bottom</code> and <code>scroll_to_bottom</code></li>
+</ul>
+</section>
+<section id="section-154" class="slide level2">
+<h2>0.11.21</h2>
+<ul>
+<li>don’t scroll to terminal (using caret plugin) when it’s disabled</li>
+</ul>
+</section>
+<section id="section-155" class="slide level2">
+<h2>0.11.20</h2>
+<ul>
+<li>don’t convert links to formatting when raw option is true</li>
+</ul>
+</section>
+<section id="section-156" class="slide level2">
+<h2>0.11.19</h2>
+<ul>
+<li>fix getting data from local storage</li>
+<li>remove spell check and auto capitalize from textarea</li>
+</ul>
+</section>
+<section id="section-157" class="slide level2">
+<h2>0.11.18</h2>
+<ul>
+<li>fix input method</li>
+</ul>
+</section>
+<section id="section-158" class="slide level2">
+<h2>0.11.17</h2>
+<ul>
+<li>fix <code>echo</code> when line is short and have newlines</li>
+</ul>
+</section>
+<section id="section-159" class="slide level2">
+<h2>0.11.16</h2>
+<ul>
+<li>add versioned files to npmignore</li>
+<li>add global and echo option wrap to disable long line wrapping</li>
+<li>don’t send warning when mime for JSON-RPC is text/json</li>
+</ul>
+</section>
+<section id="section-160" class="slide level2">
+<h2>0.11.15</h2>
+<ul>
+<li>replace <code>json_stringify</code> with <code>JSON.stringify</code></li>
+</ul>
+</section>
+<section id="section-161" class="slide level2">
+<h2>0.11.14</h2>
+<ul>
+<li>fix focus on desktop</li>
+</ul>
+</section>
+<section id="section-162" class="slide level2">
+<h2>0.11.13</h2>
+<ul>
+<li>allow only memory storage with memory option set to true</li>
+</ul>
+</section>
+<section id="section-163" class="slide level2">
+<h2>0.11.12</h2>
+<ul>
+<li>fix focus on mobile</li>
+</ul>
+</section>
+<section id="section-164" class="slide level2">
+<h2>0.11.11</h2>
+<ul>
+<li>fix do not enable the terminal on click if it’s frozen</li>
+</ul>
+</section>
+<section id="section-165" class="slide level2">
+<h2>0.11.10</h2>
+<ul>
+<li>fix focus on click</li>
+</ul>
+</section>
+<section id="section-166" class="slide level2">
+<h2>0.11.9</h2>
+<ul>
+<li>fix <code>outputLimit</code> option</li>
+</ul>
+</section>
+<section id="section-167" class="slide level2">
+<h2>0.11.8</h2>
+<ul>
+<li>add <code>scrollOnEcho</code> option</li>
+</ul>
+</section>
+<section id="section-168" class="slide level2">
+<h2>0.11.7</h2>
+<ul>
+<li>fix <code>History::last</code></li>
+</ul>
+</section>
+<section id="section-169" class="slide level2">
+<h2>0.11.6</h2>
+<ul>
+<li>fix <code>flush</code></li>
+<li>new API method <code>$.terminal.last_id</code></li>
+</ul>
+</section>
+<section id="section-170" class="slide level2">
+<h2>0.11.5</h2>
+<ul>
+<li>fix focus on Android</li>
+</ul>
+</section>
+<section id="section-171" class="slide level2">
+<h2>0.11.4</h2>
+<ul>
+<li>allow to change <code>completion</code> using option API method</li>
+</ul>
+</section>
+<section id="section-172" class="slide level2">
+<h2>0.11.3</h2>
+<ul>
+<li>add <code>echoCommand</code> option</li>
+</ul>
+</section>
+<section id="section-173" class="slide level2">
+<h2>0.11.2</h2>
+<ul>
+<li>allow to select text using double click</li>
+</ul>
+</section>
+<section id="section-174" class="slide level2">
+<h2>0.11.1</h2>
+<ul>
+<li>fix <code>exec</code> login from hash</li>
+<li>allow to pause with visible command line</li>
+<li>new api method <code>clear_history_state</code></li>
+</ul>
+</section>
+<section id="section-175" class="slide level2">
+<h2>0.11.0</h2>
+<ul>
+<li>fix default prompt for push</li>
+<li>add <code>word-wrap: break-word</code> for cases when echo html that have long lines</li>
+<li>fix <code>login</code> function as setting when used with JSON-RPC</li>
+<li>add help command to JSON-RPC when there is <code>system.describe</code></li>
+<li>fix <code>exec</code> array and delayed commands (when you <code>exec</code> and don’t wait for promise to resolve)</li>
+<li>fix double cursor in terminals when calling resume on disabled terminal</li>
+<li>fix calling <code>login</code> after pop from login</li>
+<li>add <code>infiniteLogin</code> option to push</li>
+<li>fix <code>exec</code> after init when used with JSON-RPC with <code>system.describe</code></li>
+<li>make <code>set_interpreter</code> return terminal object</li>
+<li><code>logout</code> when <code>onBeforeLogin</code> return false</li>
+<li>fix backspace in Vivaldi browser by keeping focus in textarea for all browsers</li>
+<li>new API method <code>last_index</code></li>
+<li>alow to remove the line by passing null as replacement to update function</li>
+<li>fix number of characters per line</li>
+<li>fix paste on MacOSX</li>
+</ul>
+</section>
+<section id="section-176" class="slide level2">
+<h2>0.10.12</h2>
+<ul>
+<li>fix css animation of blinking in minified file</li>
+</ul>
+</section>
+<section id="section-177" class="slide level2">
+<h2>0.10.11</h2>
+<ul>
+<li>fix check arity for nested object; throw error when calling <code>logout</code> in <code>login</code></li>
+</ul>
+</section>
+<section id="section-178" class="slide level2">
+<h2>0.10.10</h2>
+<ul>
+<li>escape brackets while echo completion strings</li>
+</ul>
+</section>
+<section id="section-179" class="slide level2">
+<h2>0.10.9</h2>
+<ul>
+<li>fix issue with jQuery Timers when page included another jQuery after initialization</li>
+</ul>
+</section>
+<section id="section-180" class="slide level2">
+<h2>0.10.8</h2>
+<ul>
+<li>add mangle option to uglifyjs</li>
+</ul>
+</section>
+<section id="section-181" class="slide level2">
+<h2>0.10.7</h2>
+<ul>
+<li>fix if interpreter is an array and have function</li>
+</ul>
+</section>
+<section id="section-182" class="slide level2">
+<h2>0.10.6</h2>
+<ul>
+<li>fix overwriting of <code>exit</code> and <code>clear</code> commands</li>
+</ul>
+</section>
+<section id="section-183" class="slide level2">
+<h2>0.10.5</h2>
+<ul>
+<li>prevent infinite loop in <code>terminal::active</code> when no terminal</li>
+</ul>
+</section>
+<section id="section-184" class="slide level2">
+<h2>0.10.4</h2>
+<ul>
+<li>change -min to .min in minfied versions of files</li>
+</ul>
+</section>
+<section id="section-185" class="slide level2">
+<h2>0.10.3</h2>
+<ul>
+<li>make npm happy about version</li>
+</ul>
+</section>
+<section id="section-186" class="slide level2">
+<h2>0.10.2</h2>
+<ul>
+<li>Add minified css file</li>
+</ul>
+</section>
+<section id="section-187" class="slide level2">
+<h2>0.10.1</h2>
+<ul>
+<li>fix url regex for formatting</li>
+</ul>
+</section>
+<section id="section-188" class="slide level2">
+<h2>0.10.0</h2>
+<ul>
+<li>keepWords option to echo and words parameter in <code>split_equal</code></li>
+<li>fix <code>login</code> for nested intepreters</li>
+<li>fix <code>destroy</code> of <code>cmd</code> plugin</li>
+<li>fix saving commands in hash</li>
+<li>allow to disable completion in nested interpreter</li>
+<li>change position of cursor in reverse history search</li>
+<li>fix pasting in Firefox</li>
+<li><code>exec</code> is adding command to history</li>
+<li>fix execHash in FireFox</li>
+<li>testsing terminal and <code>cmd</code> plugin + call from command line</li>
+<li>fix <code>exec</code> for nested login rpc command</li>
+<li>fix <code>exec</code> from hash if commands use pause/resume</li>
+<li>fix <code>exec</code> for build in commands</li>
+<li>fix other various <code>exec</code> from hash issues</li>
+<li>fix local <code>logout</code> and <code>login</code> commands</li>
+<li><code>mousewheel</code> and <code>resize</code> options for interpreter</li>
+<li>use MIT license</li>
+<li><code>onExport</code> and <code>onImport</code> events</li>
+</ul>
+</section>
+<section id="section-189" class="slide level2">
+<h2>0.9.3</h2>
+<ul>
+<li>change <code>settings</code> to method</li>
+<li>fix <code>process_commands</code> and escape_regex</li>
+<li>fix <code>login</code> from hash</li>
+<li>fix raw <code>echo</code></li>
+<li>don’t print empty string after removing extended commands strings</li>
+<li>fix <code>history_state</code> method</li>
+</ul>
+</section>
+<section id="section-190" class="slide level2">
+<h2>0.9.2</h2>
+<ul>
+<li>don’t change command line history if ctrl key is pressed</li>
+<li>fix middle mouse copy on GNU/Linux</li>
+<li>fix resize issue</li>
+</ul>
+</section>
+<section id="section-191" class="slide level2">
+<h2>0.9.1</h2>
+<ul>
+<li>freeze and frozen API methods that disable/enable terminal that can’t be enabled by click</li>
+</ul>
+</section>
+<section id="section-192" class="slide level2">
+<h2>0.9.0</h2>
+<ul>
+<li>use url hash to store terminal session</li>
+<li>fix <code>export/import</code></li>
+<li>focus/blur on Window focus/blur</li>
+<li>allow to change mask char for passwords</li>
+<li>fix space after completed command and in ALT+D</li>
+<li>class .command in div created by echo command, and error class in error function</li>
+<li>CSS selection is now one solid color, also support h1..h6, tables and pre tags</li>
+<li>fix ANSI Formatting bug</li>
+<li>regex as History Filter</li>
+<li>custom Formatters</li>
+<li><code>raw</code> and <code>globalToken</code> options</li>
+<li>fix encoding entites</li>
+<li>allow to echo jQuery promise</li>
+<li><code>exec</code> return promise, <code>exec</code> with array of commands</li>
+<li>auto <code>resume/pause</code> if user code return promise</li>
+<li>mobile (tested on Android) - users report that it don’t work - need testing</li>
+<li>functions splitCommand, parseCommand, splitArguments, parseArguments changed to kebab case, but the old functions are kept for backward compatibility</li>
+<li>new API method <code>read</code> (wrapper over <code>push</code>), <code>autologin</code> and <code>update</code></li>
+<li>extended commands with syntax <code>[{   }]</code></li>
+</ul>
+</section>
+<section id="section-193" class="slide level2">
+<h2>0.8.8</h2>
+<ul>
+<li>fix 2 json rpc bugs</li>
+</ul>
+</section>
+<section id="section-194" class="slide level2">
+<h2>0.8.7</h2>
+<ul>
+<li>fix processing command function</li>
+</ul>
+</section>
+<section id="section-195" class="slide level2">
+<h2>0.8.6</h2>
+<ul>
+<li>one space after fully completed command</li>
+</ul>
+</section>
+<section id="section-196" class="slide level2">
+<h2>0.8.5</h2>
+<ul>
+<li>all regex for formatting case insensitive</li>
+</ul>
+</section>
+<section id="section-197" class="slide level2">
+<h2>0.8.4</h2>
+<ul>
+<li>fix redraw lines on <code>import_view</code>, fix calculating rows</li>
+</ul>
+</section>
+<section id="section-198" class="slide level2">
+<h2>0.8.3</h2>
+<ul>
+<li>fix <code>completion</code> in nested interpreters</li>
+<li><code>login</code> option in push</li>
+<li>remove pause/resume from login</li>
+<li>fix parsing RegExes</li>
+<li>fix display text with more then limit lines in one echo</li>
+</ul>
+</section>
+<section id="section-199" class="slide level2">
+<h2>0.8.2</h2>
+<ul>
+<li>add <code>Terminal::exception</code> function</li>
+</ul>
+</section>
+<section id="section-200" class="slide level2">
+<h2>0.8.1</h2>
+<ul>
+<li>fix <code>login/logout</code></li>
+</ul>
+</section>
+<section id="section-201" class="slide level2">
+<h2>0.8.0</h2>
+<ul>
+<li>CTRL+L clear terminal</li>
+<li>Shift+Enter insert newline</li>
+<li>remove <code>tabcompletion</code> option (now <code>completion</code> can be true, array or function)</li>
+<li>add <code>onRPCError</code> and <code>exceptionHandler</code> callbacks</li>
+<li>interpreter can be an array</li>
+<li>ignoreSystemDescribe option</li>
+<li>handle invalid JSON-RPC</li>
+<li>CSS style for standalone cmd plugin</li>
+<li>using CSS3 Animation for blinking if supported</li>
+<li>fix <code>[0m</code></li>
+<li>better error handling (all messages are in <code>$.terminal.defaults.strings</code>)</li>
+<li>named colors for terminal formatting</li>
+<li>expose <code>settings</code> and <code>login</code> function</li>
+<li>more tools in <code>$.terminal</code></li>
+<li>paste kill text with CTRL+Y</li>
+<li>paste text from selection using middle mouse button</li>
+<li>fix login, history and exec</li>
+<li>disable few things when in login function</li>
+<li>all Strings are in $.terminal.defaults.strings</li>
+<li>more functions in $.terminal object</li>
+</ul>
+</section>
+<section id="section-202" class="slide level2">
+<h2>0.7.12</h2>
+<ul>
+<li>fix terminal when start as invisible, rest property to parseCommand</li>
+</ul>
+</section>
+<section id="section-203" class="slide level2">
+<h2>0.7.11</h2>
+<ul>
+<li>fix last history command</li>
+</ul>
+</section>
+<section id="section-204" class="slide level2">
+<h2>0.7.10</h2>
+<ul>
+<li>fix reverse search</li>
+</ul>
+</section>
+<section id="section-205" class="slide level2">
+<h2>0.7.9</h2>
+<ul>
+<li>Don’t show version when use source file</li>
+</ul>
+</section>
+<section id="section-206" class="slide level2">
+<h2>0.7.8</h2>
+<ul>
+<li>Allow to call <code>$.terminal.active()</code> in <code>prompt</code></li>
+</ul>
+</section>
+<section id="section-207" class="slide level2">
+<h2>0.7.7</h2>
+<ul>
+<li>fix long line wrap on Init, don’t call <code>termina::resize</code> on init</li>
+</ul>
+</section>
+<section id="section-208" class="slide level2">
+<h2>0.7.6</h2>
+<ul>
+<li>fix small errors and typos</li>
+</ul>
+</section>
+<section id="section-209" class="slide level2">
+<h2>0.7.5</h2>
+<ul>
+<li>fix <code>flush</code>, add option <code>linksNoReferer</code></li>
+</ul>
+</section>
+<section id="section-210" class="slide level2">
+<h2>0.7.4</h2>
+<ul>
+<li>fix interpreter when there is not <code>system.describe</code> in JSON-RPC</li>
+<li>add method <code>flush</code> and fix refresh</li>
+</ul>
+</section>
+<section id="section-211" class="slide level2">
+<h2>0.7.3</h2>
+<ul>
+<li>add ANSI 256 (8bit) formatting from Xterm</li>
+<li>fix Regexes</li>
+<li>add ntroff formatting support (output from man)</li>
+</ul>
+</section>
+<section id="section-212" class="slide level2">
+<h2>0.7.2</h2>
+<ul>
+<li>fix <code>purge</code>, json-rpc, history. Improve json-rpc and add check arity</li>
+</ul>
+</section>
+<section id="section-213" class="slide level2">
+<h2>0.7.1</h2>
+<ul>
+<li>add tests</li>
+<li>terminal without eval</li>
+<li>fix issue with umpersand (unenclosed entinity) in multiline</li>
+</ul>
+</section>
+<section id="section-214" class="slide level2">
+<h2>0.7.0</h2>
+<ul>
+<li>add <code>outputLimit</code>, add method <code>destroy</code></li>
+<li>add utilities <code>parseArguments</code>, <code>splitArguments</code>, <code>parseCommand</code> and <code>splitCommand</code> to <code>$.terminal</code></li>
+<li>allow to overwrite, by user, parsing commands in object as eval</li>
+<li>make <code>cmd</code> chainable</li>
+<li>fix command line (interepters) names for localStorage use</li>
+<li>fix Login/Token LocalStorage names</li>
+<li>add method <code>purge</code> (that clear localStorage)</li>
+<li>convert escaped hex and octals in double quoted strings as chars</li>
+<li>fix Tilda on Windows</li>
+<li>more ANSI codes</li>
+<li>complete common string on TAB</li>
+<li>fix cancel ajax on CTRL+D when paused</li>
+</ul>
+</section>
+<section id="section-215" class="slide level2">
+<h2>0.6.5</h2>
+<ul>
+<li><code>finalize</code> and <code>raw</code> options in <code>echo</code></li>
+</ul>
+</section>
+<section id="section-216" class="slide level2">
+<h2>0.6.4</h2>
+<ul>
+<li>fix regexes, CMD+`, CMD+R, CMD+L on Mac, fix Resize if terminal is hidden, fix wrap ANSI formatting</li>
+</ul>
+</section>
+<section id="section-217" class="slide level2">
+<h2>0.6.3</h2>
+<ul>
+<li>fix arguments in automatic JSON-RPC</li>
+</ul>
+</section>
+<section id="section-218" class="slide level2">
+<h2>0.6.2</h2>
+<ul>
+<li>fix arguments in object as eval, new option processArguments</li>
+</ul>
+</section>
+<section id="section-219" class="slide level2">
+<h2>0.6.1</h2>
+<ul>
+<li>fix first <code>echo</code> (like greetings)</li>
+</ul>
+</section>
+<section id="section-220" class="slide level2">
+<h2>0.6</h2>
+<ul>
+<li>fix formatting with links and emails and long lines</li>
+<li>history is a list with command as last element</li>
+<li>history have size</li>
+<li>You can type more characters in reverse search if command not found</li>
+<li><code>export/import</code></li>
+<li><code>nResize</code> event</li>
+</ul>
+</section>
+<section id="section-221" class="slide level2">
+<h2>0.5.4</h2>
+<ul>
+<li>fix scroll when attaching terminal to body in non Webkit browsers</li>
+</ul>
+</section>
+<section id="section-222" class="slide level2">
+<h2>0.5.3</h2>
+<ul>
+<li><code>level</code> api function</li>
+<li>restore mask on pop</li>
+<li>click out of terminal remove focus</li>
+<li>CTRL+H CTRL+W</li>
+<li>use selector as default name for the terminal</li>
+</ul>
+</section>
+<section id="section-223" class="slide level2">
+<h2>0.5.2</h2>
+<ul>
+<li>fix entity in lines</li>
+<li>add data-text attribute to formatting span</li>
+</ul>
+</section>
+<section id="section-224" class="slide level2">
+<h2>0.5.1</h2>
+<ul>
+<li>function in push</li>
+<li>allow to put braket in formatting (closed with escape)</li>
+<li>print nested object in automatic rpc</li>
+<li>terminal instance in login callback</li>
+</ul>
+</section>
+<section id="section-225" class="slide level2">
+<h2>0.5</h2>
+<ul>
+<li>tab completion work with callback function</li>
+<li><code>push</code> command allow for objects</li>
+<li>add CTRL+G to cancel Reverse Search</li>
+</ul>
+</section>
+<section id="section-226" class="slide level2">
+<h2>0.4.23</h2>
+<ul>
+<li>fix Style</li>
+</ul>
+</section>
+<section id="section-227" class="slide level2">
+<h2>0.4.21/22</h2>
+<ul>
+<li>Small fixes</li>
+</ul>
+</section>
+<section id="section-228" class="slide level2">
+<h2>0.4.20</h2>
+<ul>
+<li>add <code>exec</code>, <code>greetings</code>, <code>onClear</code>, <code>onBlur</code>, <code>onFocus</code>, <code>onTerminalChange</code></li>
+</ul>
+</section>
+<section id="section-229" class="slide level2">
+<h2>0.4.19</h2>
+<ul>
+<li>add support for ANSI terminal formatting</li>
+<li>fix cancelable ajax on</li>
+<li>add CTRL+D</li>
+<li>replace emails with link mailto</li>
+<li>remove formatting processing from command line</li>
+<li>add text glow option to formatting</li>
+</ul>
+</section>
+<section id="section-230" class="slide level2">
+<h2>0.4.18</h2>
+<ul>
+<li>fix scrollbar, better exceptions in chrome, replace urls with links</li>
+<li>one style for font and color in root <code>.terminal</code> class</li>
+</ul>
+</section>
+<section id="section-231" class="slide level2">
+<h2>0.4.17</h2>
+<ul>
+<li>fix IE formatting issue by adding cross-browser split</li>
+</ul>
+</section>
+<section id="section-232" class="slide level2">
+<h2>0.4.16</h2>
+<ul>
+<li>add reverse history search on CTRL+R</li>
+<li>fix cancel ajax call on CTRL+D</li>
+</ul>
+</section>
+<section id="section-233" class="slide level2">
+<h2>0.4.15</h2>
+<ul>
+<li>only one command from multiply commands is added to history</li>
+<li>CTRL+D is handled even if exit is false</li>
+</ul>
+</section>
+<section id="section-234" class="slide level2">
+<h2>0.4.14</h2>
+<ul>
+<li>terminal don’t add space after prompt (prompt need to add this space)</li>
+<li>fix <code>historyFilter</code></li>
+<li>remove <code>livequery</code></li>
+</ul>
+</section>
+<section id="section-235" class="slide level2">
+<h2>0.4.12</h2>
+<ul>
+<li><code>history</code> return <code>history</code> object</li>
+<li>add <code>historyFilter</code></li>
+<li>new event <code>onCommandChange</code> that execute <code>scroll_to_bottom</code></li>
+<li>add event <code>onBeforeLogin</code></li>
+</ul>
+</section>
+<section id="section-236" class="slide level2">
+<h2>0.4.11</h2>
+<ul>
+<li>fix blank lines when echo longer strings</li>
+</ul>
+</section>
+<section id="section-237" class="slide level2">
+<h2>0.4.10</h2>
+<ul>
+<li>fix long line formatting and linebreak in the middle of formatting</li>
+</ul>
+</section>
+<section id="section-238" class="slide level2">
+<h2>0.4.9</h2>
+<ul>
+<li>fix wrap first line when prompt contain formatting</li>
+</ul>
+</section>
+<section id="section-239" class="slide level2">
+<h2>0.4.8</h2>
+<ul>
+<li>fix alt+d and ctrl+u</li>
+</ul>
+</section>
+<section id="section-240" class="slide level2">
+<h2>0.4.7</h2>
+<ul>
+<li>fix inserting special characters in Webkit on Windows</li>
+</ul>
+</section>
+<section id="section-241" class="slide level2">
+<h2>0.4.6</h2>
+<ul>
+<li>remove undocumented pipe operator</li>
+<li>refreash prompt on resume</li>
+</ul>
+</section>
+<section id="section-242" class="slide level2">
+<h2>0.4.5</h2>
+<ul>
+<li>fix line wrapping when text contains tabulations</li>
+</ul>
+</section>
+<section id="section-243" class="slide level2">
+<h2>0.4.4</h2>
+<ul>
+<li>fix line wrapping with scrollbars</li>
+</ul>
+</section>
+<section id="section-244" class="slide level2">
+<h2>0.4.3</h2>
+<ul>
+<li>fix JSON-RPC when use without login</li>
+</ul>
+</section>
+<section id="section-245" class="slide level2">
+<h2>0.4.2</h2>
+<ul>
+<li>fix formatting when text contain empty lines</li>
+</ul>
+</section>
+<section id="section-246" class="slide level2">
+<h2>0.4.1</h2>
+<ul>
+<li>fix formatting when text contains newline characters</li>
+</ul>
+</section>
+<section id="section-247" class="slide level2">
+<h2>0.4</h2>
+<ul>
+<li>fix text formating when text splited into more then one line</li>
+<li>you can pass nested objects as first argument</li>
+<li>add tab completion with object passed as first argument</li>
+</ul>
+</section>
+<section id="section-248" class="slide level2">
+<h2>0.3.8</h2>
+<ul>
+<li>fix cursor manipulation when command contain new line characters</li>
+</ul>
+</section>
+<section id="section-249" class="slide level2">
+<h2>0.3.7</h2>
+<ul>
+<li>fix function <code>terminal.login_name</code></li>
+</ul>
+</section>
+<section id="section-250" class="slide level2">
+<h2>0.3.6</h2>
+<ul>
+<li>fix switch between terminals - when terminal is not visible scroll to current terminal</li>
+</ul>
+</section>
+<section id="section-251" class="slide level2">
+<h2>0.3.5</h2>
+<ul>
+<li>fix scrolling in jQuery 1.6</li>
+</ul>
+</section>
+<section id="section-252" class="slide level2">
+<h2>0.3.3</h2>
+<ul>
+<li>fixing PAGE UP/DOWN</li>
+</ul>
+</section>
+<section id="section-253" class="slide level2">
+<h2>0.3.2</h2>
+<ul>
+<li>fixing cursor in long lines</li>
+</ul>
+</section>
+<section id="section-254" class="slide level2">
+<h2>0.3.1</h2>
+<ul>
+<li>fixing small bugs, speed up resizing</li>
+</ul>
+</section>
+<section id="section-255" class="slide level2">
+<h2>0.3</h2>
+<ul>
+<li>fix resizing on start and issue with greetings</li>
+<li>add formating strings to set style of text.</li>
+<li>add to <code>echo</code> a function which will be called when terminal is resized</li>
+</ul>
+</section>
+<section id="rc2" class="slide level2">
+<h2>0.3-RC2</h2>
+<ul>
+<li>fix manipulation of long line commands</li>
+</ul>
+</section>
+<section id="rc1" class="slide level2">
+<h2>0.3-RC1</h2>
+<ul>
+<li>add callbacks and new functions</li>
+<li>you can now overwrite keyboard shortcuts</li>
+<li>resizing recalculates lines length and redraw content</li>
+<li>if you create plugin for elements that are not in the DOM</li>
+<li>and then append it to DOM it’s display corectly</li>
+<li>put all dependencies in one file</li>
+<li>Default greetings show terminal signature depending on width of terminal</li>
+<li>use Local Sorage for command line history if posible</li>
+<li>remove access to command line (cmd plugin) and add interface to allow interact with it</li>
+</ul>
+</section>
+<section id="section-256" class="slide level2">
+<h2>0.2.3.9</h2>
+<ul>
+<li>fix append enter character (0x0D) to the command (thanks to marat for reporting the bug)</li>
+</ul>
+</section>
+<section id="section-257" class="slide level2">
+<h2>0.2.3.8</h2>
+<ul>
+<li>update mousewheel plugin which fix scrolling in Opera (Thanks for Alexey Dubovtsev for reporting the bug)</li>
+</ul>
+</section>
+<section id="section-258" class="slide level2">
+<h2>0.2.3.7</h2>
+<ul>
+<li>fix cursor in IE in tilda example</li>
+</ul>
+</section>
+<section id="section-259" class="slide level2">
+<h2>0.2.3.6</h2>
+<ul>
+<li>fix json serialization in IE</li>
+</ul>
+</section>
+<section id="section-260" class="slide level2">
+<h2>0.2.3.5</h2>
+<ul>
+<li>fix demos and clipboard textarea transparency in IE</li>
+</ul>
+</section>
+<section id="section-261" class="slide level2">
+<h2>0.2.3.4</h2>
+<ul>
+<li>fix long lines in command line issue</li>
+</ul>
+</section>
+<section id="section-262" class="slide level2">
+<h2>0.2.3.3</h2>
+<ul>
+<li>fix Terminal in Internet Exporer</li>
+</ul>
+</section>
+<section id="section-263" class="slide level2">
+<h2>0.2.3.2</h2>
+<ul>
+<li>fix blank line issue (thanks to Chris Janicki for finding the bug)</li>
+<li>fix CTRL + Arrows scroll on CTRL+V</li>
+</ul>
+</section>
+<section id="section-264" class="slide level2">
+<h2>0.2.3.1</h2>
+<ul>
+<li>allow CTRL+W CTRL+T</li>
+</ul>
+</section>
+<section id="section-265" class="slide level2">
+<h2>0.2.3</h2>
+<ul>
+<li>fix for <code>"(#$%.{"</code> characters on Opera/Chrome</li>
+<li>add cursor move with CTRL+P, CTRL+N, CTRL+F, CTRL+B which also work in Chrome fix Arrow Keys on Chrome (for cursor move and command line history)</li>
+<li>change License to LGPL3.</li>
+</ul>
+</section>
+<section id="section-266" class="slide level2">
+<h2>0.2.2</h2>
+<ul>
+<li>fix down-arrow/open parentises issue in Opera and Chrome</li>
+</ul>
+</section>
+<section id="section-267" class="slide level2">
+<h2>0.2.1</h2>
+<ul>
+<li>add support for paste from clipboard with CTRL+V (Copy to clipboard is always enabled on websites)</li>
+</ul>
+<div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="CHANGELOG_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="CHANGELOG_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="CHANGELOG_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="CHANGELOG_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

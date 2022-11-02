@@ -6,6 +6,8 @@ author: Qiushi Yan <br /> [qiushiyan/transformers-paper-presentation](https://gi
 filters:
   - shinylive
 
+jupyter: python3.10
+
 format:
   revealjs:
     theme: [default, custom.scss]
@@ -13,3 +15,4 @@ format:
     scrollable: true
     slide-number: true
     code-overflow: wrap
+    chalkboard: true

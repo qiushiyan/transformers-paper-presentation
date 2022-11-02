@@ -6,15 +6,7 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/jquery.min.js"></script>
-<script src="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/jquery.terminal/js/jquery.terminal.min.js"></script>
-<script src="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/run-python-blocks.js" type="module"></script>
-<link href="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/shinylive.css" rel="stylesheet">
-<link href="index_files/libs/quarto-contrib/shinylive-0.0.10/shinylive/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet">
-<link href="index_files/libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet"><meta charset="utf-8">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.198">
 
   <meta name="author" content="Qiushi Yan   qiushiyan/transformers-paper-presentation">
@@ -105,6 +97,8 @@
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -441,8 +435,13 @@ Qiushi Yan <br> <a href="https://github.com/qiushiyan/transformers-paper-present
 <h2>The problem</h2>
 <!-- * worse representation of frequent words (compared to CBOW) -->
 <ol type="1">
-<li><p>Performance is not optimal because full softmax is hard to compute</p></li>
-<li><p>Inability to represent idiomatic phrases</p></li>
+<li>Performance is not optimal because full softmax is hard to compute</li>
+</ol>
+<p><span class="math display">\[
+p(w_t | w) = \frac{\exp(w_t^Tw)}{\color{yellow}{\sum_{t=1}^T \exp(w_t^Tw)}}
+\]</span></p>
+<ol start="2" type="1">
+<li>Inability to represent idiomatic phrases</li>
 </ol>
 <ul>
 <li>i.e., vec(“Air”) + vec(“Canada”) is far away from vec(“Air Canada”)</li>
@@ -578,28 +577,54 @@ P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
 </section>
 <section id="demo" class="slide level2">
 <h2>Demo</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>#| standalone: true</span>
-<span id="cb2-2"><a href="#cb2-2"></a>#| components: [editor, viewer]</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a>from shiny import *</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>app_ui = ui.page_fluid(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    ui.input_slider("n", "N", 0, 100, 40),</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    ui.output_text_verbatim("txt"),</span>
-<span id="cb2-9"><a href="#cb2-9"></a>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a>def server(input, output, session):</span>
-<span id="cb2-12"><a href="#cb2-12"></a>    @output</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    @render.text</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    def txt():</span>
-<span id="cb2-15"><a href="#cb2-15"></a>        return f"The value of n*2 is {input.n() * 2}"</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a>app = App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(<span class="st">"GoogleNews-vectors-negative300.bin"</span>):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="op">!</span>wget <span class="op">-</span>c <span class="op">-</span>nc <span class="st">"https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="op">!</span>gunzip GoogleNews<span class="op">-</span>vectors<span class="op">-</span>negative300.<span class="bu">bin</span>.gz</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>keys <span class="op">=</span> [<span class="st">'Paris'</span>, <span class="st">'Python'</span>, <span class="st">'Sunday'</span>, <span class="st">'Tolstoy'</span>, <span class="st">'Twitter'</span>, <span class="st">'bachelor'</span>, <span class="st">'delivery'</span>, <span class="st">'election'</span>, <span class="st">'expensive'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="st">'experience'</span>, <span class="st">'financial'</span>, <span class="st">'food'</span>, <span class="st">'iOS'</span>, <span class="st">'peace'</span>, <span class="st">'release'</span>, <span class="st">'war'</span>]</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>embedding_clusters <span class="op">=</span> []</span>
+<span id="cb2-9"><a href="#cb2-9"></a>word_clusters <span class="op">=</span> []</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="cf">for</span> word <span class="kw">in</span> keys:</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="bu">print</span>(<span class="ss">f"Key = </span><span class="sc">{</span>word<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    embeddings <span class="op">=</span> []</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    words <span class="op">=</span> []</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="cf">for</span> similar_word, _ <span class="kw">in</span> model_gn.most_similar(word, topn<span class="op">=</span><span class="dv">30</span>):</span>
+<span id="cb2-15"><a href="#cb2-15"></a>        words.append(similar_word)</span>
+<span id="cb2-16"><a href="#cb2-16"></a>        embeddings.append(model_gn[similar_word])</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    embedding_clusters.append(embeddings)</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    word_clusters.append(words)</span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="kw">def</span> tsne_plot_similar_words(title, labels, embedding_clusters, word_clusters, a, filename<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb2-21"><a href="#cb2-21"></a>  figsize <span class="op">=</span> (<span class="fl">9.5</span>,<span class="dv">6</span>) <span class="cf">if</span> (matplotlib.get_backend() <span class="op">==</span> <span class="st">'nbAgg'</span>) <span class="cf">else</span> (<span class="dv">20</span>,<span class="dv">12</span>)  <span class="co"># interactive plot should be smaller</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>  plt.figure(figsize<span class="op">=</span>(figsize))</span>
+<span id="cb2-23"><a href="#cb2-23"></a>  colors <span class="op">=</span> cm.rainbow(np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">len</span>(labels)))</span>
+<span id="cb2-24"><a href="#cb2-24"></a>  <span class="cf">for</span> label, embeddings, words, color <span class="kw">in</span> <span class="bu">zip</span>(labels, embedding_clusters, word_clusters, colors):</span>
+<span id="cb2-25"><a href="#cb2-25"></a>      x <span class="op">=</span> embeddings[:, <span class="dv">0</span>]</span>
+<span id="cb2-26"><a href="#cb2-26"></a>      y <span class="op">=</span> embeddings[:, <span class="dv">1</span>]</span>
+<span id="cb2-27"><a href="#cb2-27"></a>      plt.scatter(x, y, c<span class="op">=</span>[color], alpha<span class="op">=</span>a, label<span class="op">=</span>label)</span>
+<span id="cb2-28"><a href="#cb2-28"></a>      <span class="cf">for</span> i, word <span class="kw">in</span> <span class="bu">enumerate</span>(words):</span>
+<span id="cb2-29"><a href="#cb2-29"></a>          plt.annotate(word, alpha<span class="op">=</span><span class="fl">0.5</span>, xy<span class="op">=</span>(x[i], y[i]), xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">2</span>),</span>
+<span id="cb2-30"><a href="#cb2-30"></a>                        textcoords<span class="op">=</span><span class="st">'offset points'</span>, ha<span class="op">=</span><span class="st">'right'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, size<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb2-31"><a href="#cb2-31"></a>  plt.legend(loc<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-32"><a href="#cb2-32"></a>  plt.title(title)</span>
+<span id="cb2-33"><a href="#cb2-33"></a>  plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-34"><a href="#cb2-34"></a>  plt.show()</span>
+<span id="cb2-35"><a href="#cb2-35"></a></span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a>tsne_plot_similar_words(<span class="st">'Similar words from Google News'</span>, keys, embeddings_en_2d, word_clusters, <span class="fl">0.7</span>,</span>
+<span id="cb2-38"><a href="#cb2-38"></a>                        <span class="st">'similar_words.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="cluster.png" class="r-stretch"></section>
 <section id="additional-resources" class="slide level2">
 <h2>Additional resources</h2>
 <ul>
 <li><p><a href="https://gist.github.com/aparrish/2f562e3737544cf29aaf1af30362f469">Word2Vec Code Walkthrough with gensim</a></p></li>
+<li><p><a href="https://radimrehurek.com/gensim/models/word2vec.html">Gensim Word2Vec doc</a></p></li>
 <li><p><a href="https://www.youtube.com/watch?v=4PXILCmVK4Q">Negative Sampling</a></p></li>
 </ul>
 <div class="footer footer-default">
@@ -616,6 +641,7 @@ P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
   <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -637,7 +663,8 @@ P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -808,7 +835,7 @@ P(w_i) = \frac{f(w_i)^{3/4}}{\sum_{w=1}^W f(w)^{3/4}}
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

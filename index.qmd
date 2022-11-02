@@ -40,6 +40,11 @@ It also work well with small datasets due to less parameters.
 
 1. Performance is not optimal because full softmax is hard to compute
 
+$$
+p(w_t | w) = \frac{\exp(w_t^Tw)}{\color{yellow}{\sum_{t=1}^T \exp(w_t^Tw)}}
+$$
+
+
 2. Inability to represent idiomatic phrases
 
   - i.e., vec("Air") + vec("Canada") is far away from vec("Air Canada")
@@ -176,32 +181,55 @@ A vector representation is associated to each character n-gram; words being repr
 
 ## Demo
 
+```python
+if not os.path.exists("GoogleNews-vectors-negative300.bin"):
+    !wget -c -nc "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
+    !gunzip GoogleNews-vectors-negative300.bin.gz
 
-```{shinylive-python}
-#| standalone: true
-#| components: [editor, viewer]
+keys = ['Paris', 'Python', 'Sunday', 'Tolstoy', 'Twitter', 'bachelor', 'delivery', 'election', 'expensive',
+    'experience', 'financial', 'food', 'iOS', 'peace', 'release', 'war']
 
-from shiny import *
+embedding_clusters = []
+word_clusters = []
+for word in keys:
+    print(f"Key = {word}")
+    embeddings = []
+    words = []
+    for similar_word, _ in model_gn.most_similar(word, topn=30):
+        words.append(similar_word)
+        embeddings.append(model_gn[similar_word])
+    embedding_clusters.append(embeddings)
+    word_clusters.append(words)
 
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 40),
-    ui.output_text_verbatim("txt"),
-)
+def tsne_plot_similar_words(title, labels, embedding_clusters, word_clusters, a, filename=None):
+  figsize = (9.5,6) if (matplotlib.get_backend() == 'nbAgg') else (20,12)  # interactive plot should be smaller
+  plt.figure(figsize=(figsize))
+  colors = cm.rainbow(np.linspace(0, 1, len(labels)))
+  for label, embeddings, words, color in zip(labels, embedding_clusters, word_clusters, colors):
+      x = embeddings[:, 0]
+      y = embeddings[:, 1]
+      plt.scatter(x, y, c=[color], alpha=a, label=label)
+      for i, word in enumerate(words):
+          plt.annotate(word, alpha=0.5, xy=(x[i], y[i]), xytext=(5, 2),
+                        textcoords='offset points', ha='right', va='bottom', size=8)
+  plt.legend(loc=4)
+  plt.title(title)
+  plt.grid(True)
+  plt.show()
 
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"The value of n*2 is {input.n() * 2}"
 
-app = App(app_ui, server)
-
+tsne_plot_similar_words('Similar words from Google News', keys, embeddings_en_2d, word_clusters, 0.7,
+                        'similar_words.png')
 ```
 
+##
 
+![](cluster.png)
 
 ## Additional resources
 
 - [Word2Vec Code Walkthrough with gensim](https://gist.github.com/aparrish/2f562e3737544cf29aaf1af30362f469)
+
+- [Gensim Word2Vec doc](https://radimrehurek.com/gensim/models/word2vec.html)
 
 - [Negative Sampling](https://www.youtube.com/watch?v=4PXILCmVK4Q)
